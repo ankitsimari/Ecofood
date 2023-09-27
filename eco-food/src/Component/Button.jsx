@@ -14,14 +14,15 @@ export default function ButtonComponent({name}) {
 
 const DIV = styled.div`
   Button{
-    background-color: #ff6f0d;
+    background-color: #DC3545;
     color: #f4f4f4;
     font-weight: bold;
-    border: 1px solid #ff6f0d;
+    border: 1.5px solid #DC3545;
+    border-radius: 0%;
   }
   Button:hover{
     background-color:#f4f4f4 ;
-    color: #ff6f0d;
+    color: #DC3545;
     font-weight: bold;
     
   }
