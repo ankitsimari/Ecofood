@@ -1,22 +1,49 @@
 
+
 .themeColor{
-    color: #ff6f0d;
+    color: #DC3545;
 }
 
-.button{
-    background-color: #ff6f0d;
+.themeBg{
+    background-color: #DC3545;
+}
+
+/* .button{
+    background-color: #DC3545;
     color: #f4f4f4;
     font-weight: bold;
-}
+} */
 
 .hero_h1{
-    font-size: 50px;
+    font-size: 55px;
+    /* line-height: 60px; */
+}
+.max-width{
+    max-width: 500px;
+
 }
 
+.hero_text{
+padding: 100px 50px;
+}
+
+
+.heroBgCard{
+    background-image: url(./Image/heroBg.png);
+}
+
+/* .smallCard{
+    width: 200px;
+    height: 250px;
+    background: transparent;
+} */
 
 
 @media screen and (max-width:500px) {
     .hero_h1{
         font-size: 30px;
     }
+    .hero_text{
+        padding: 0px;
+        }
 }
