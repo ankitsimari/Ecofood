@@ -8,6 +8,8 @@ import ProductInfo from '../Component/Sagar/ProductInfo'
 import { Login } from '../Component/Hemanth/Login'
 import PrivateRoutes from './PrivateRoutes'
 
+
+
 export default function AllRoutes() {
   return (
     <div>
