@@ -29,7 +29,7 @@ export default function Slider() {
         swipeable={true}
         infiniteLoop={true}
         interval={1500}
-        preventMovementUntilSwipeScrollTolerance={false}
+        // preventMovementUntilSwipeScrollTolerance={false}
         transitionTime={200}
         useKeyboardArrows={true}
         swipeScrollTolerance={0}

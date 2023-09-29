@@ -3,10 +3,10 @@ import Button from '@mui/material/Button';
 import styled from '@emotion/styled';
 
 
-export default function ButtonComponent({name}) {
+export default function ButtonComponent({name,onClick}) {
   return (
     <DIV>
-  <Button className='button' variant="contained">{name}</Button>
+  <Button className='button' onClick={onClick} variant="contained">{name}</Button>
      </DIV>
   )
 }
