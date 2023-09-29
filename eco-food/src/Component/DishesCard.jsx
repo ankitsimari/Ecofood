@@ -1,18 +1,50 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {FaFilter} from 'react-icons/fa'
+import {useSearchParams} from "react-router-dom"
 
 export default function DishesCard({name}) {
-  return (
-<DIV>
 
-    <div className='shadow rounded'>
+    const [searchParams,setSearchParams] = useSearchParams();
+    const [category,setCategory] = useState(searchParams.getAll("category") || [])
+    // console.log(searchParams)
+
+
+    const handleCategory = ()=>{
+        const value={name}.name;
+        let newCategory = [...category];
+    
+        if(newCategory.includes(value)){
+          newCategory = newCategory.filter((el)=>el!==value)
+        }else{
+          newCategory.push(value)
+        }
+        setCategory(newCategory)
+    
+      }
+    
+      useEffect(()=>{
+        let params={
+          category,
+        }
+        // order && (params.order=order);
+        setSearchParams(params)
+      },[category])
+    
+
+  return (
+<DIV >
+
+    <div className='shadow rounded ' onClick={handleCategory}>
    <FaFilter className="bomb fs-2"/>
     <h6>{name}</h6>
     </div>
 </DIV>
   )
 }
+
+
+
 
 
 const DIV = styled.div`
