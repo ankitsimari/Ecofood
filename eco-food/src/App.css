@@ -14,6 +14,22 @@
     font-weight: bold;
 } */
 
+
+.navContainer{
+    display: flex;
+    justify-content: space-evenly !important;
+  }
+
+  .nav-link:hover {
+    border-bottom: 2px solid #b4a598;
+    color: #6c6761 !important;
+  }
+  
+  .nav-link.active {
+    color: #DC3545 !important;
+    border-bottom: 2px solid #DC3545;
+  }
+
 .hero_h1{
     font-size: 55px;
     /* line-height: 60px; */

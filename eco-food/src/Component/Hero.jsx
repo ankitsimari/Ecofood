@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="row">
         <div className="col-md-8 hero_text">
           <h1 className="hero_h1 max-width">We Deliver Only <span className="themeColor">Fresh Food</span></h1>
-          <p className=" pe-lg-5 my-4 max-width"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit error necessitatibus laudantium qui amet accusamus, neque rem, ullam animi ipsam esse maxime iste vitae.</p>
+          <p className=" pe-lg-5 my-4 max-width "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit error necessitatibus laudantium qui amet accusamus, neque rem, ullam animi ipsam esse maxime iste vitae.</p>
           <ButtonComponent name="Order Now"  />
         </div>
         <div className="col-md-4 mt-4 mt-lg-0 d-flex justify-content-end gap-2 heroBgCard rounded">

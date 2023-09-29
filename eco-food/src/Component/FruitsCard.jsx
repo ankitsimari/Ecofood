@@ -1,19 +1,19 @@
 import React from 'react'
-import strawberry_img from "../Image/f1.png"
+
 import styled from '@emotion/styled'
 import {FaCartPlus} from 'react-icons/fa'
 
-export default function FruitsCard() {
+export default function FruitsCard({image,title,price,category}) {
   return (
    <DIV>
 
     <div className='shadow rounded p-2'>
-        <img src={strawberry_img} alt="" />
+        <img src={image} alt="" />
   <div className='text '>
       <FaCartPlus className='text-danger fs-3 float-end mt-2 pe-1 me-2'/>
-        <h4 className='text-end me-2'>strawberry</h4>
-        <p className='text-end me-2 mb-1'>dummy</p>
-        <h6 className='text-end me-2 pe-1'><span>₹</span> 300</h6>
+        <h4 className='text-end me-2'>{title}</h4>
+        <p className='text-end me-2 mb-1'>{category}</p>
+        <h6 className='text-end me-2 pe-1'><span>₹</span>{price}</h6>
   </div>
       
     </div>
@@ -32,7 +32,7 @@ const DIV = styled.div`
   width: 250px;
   height: 140px;
   margin: 20px ;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  /* background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: transform 0.3s;
