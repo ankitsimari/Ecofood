@@ -4,6 +4,7 @@ import BasicAccordion from './Component/Accordian';
 import Dishes from './Component/Dishes';
 import Footer from './Component/Footer';
 import Fruits from './Component/Fruits';
+import { Login } from './Component/Hemanth/Login';
 import Hero from './Component/Hero';
 import HeroSection from './Component/HeroSection';
 import Navbar from './Component/Navbar';
