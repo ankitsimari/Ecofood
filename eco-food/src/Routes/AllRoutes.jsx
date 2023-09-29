@@ -7,6 +7,7 @@ import Order from './Order'
 import ProductInfo from '../Component/Sagar/ProductInfo'
 import { Login } from '../Component/Hemanth/Login'
 import PrivateRoutes from './PrivateRoutes'
+import SingleCardPage from '../Component/Sagar/SingleCardPage'
 
 
 
@@ -23,7 +24,7 @@ export default function AllRoutes() {
               </PrivateRoutes>
             }/>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/singlePage/:id' element={<ProductInfo/>}/>
+            <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
 
         </Routes>
     </div>
