@@ -1,39 +1,10 @@
-import React,{ useEffect, useState } from "react";
+import React,{ useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // //visit for more info https://react-responsive-carousel.js.org/  for same like this//https://css-tricks.com/how-to-make-a-css-only-carousel/
 import { Carousel } from "react-responsive-carousel";  //visit for more info https://react-responsive-carousel.js.org/
 import { styled } from "styled-components";
 
-
-
-export default function SimilarProduct() {  
-
- 
-    const [name,setName] = useState("Laptop");
-    
-
-
- useEffect(()=>{
-    window.addEventListener("resize",()=>{
-
-        let width = window.outerWidth;
-  
-         if(width>=320 && width<=480){
-          setName("Mobile");
-         }
-         else if(width>=481 && width<=768){
-           setName("TAB");
-         }
-         else if(width>=769 && width<=1300){
-          setName("Laptop");
-      }
-   })
-
- },[])   
-
-
-  
-console.log(name);
-
+export default function OtherProducts() {                    
+   
   const sliderImages = [
     // Your image objects here
      "https://miro.medium.com/v2/resize:fit:720/1*b70EksDvGpnbOSkGcP8Ysg.jpeg",
@@ -54,9 +25,9 @@ console.log(name);
 
 
   return (
-    <DIV className="main">
+    <DIV>
         <div className="headingDiv">
-             <p>Similar Category Prodcuts</p>
+             <p>Other Category Prodcuts</p>
         </div>
       <Carousel
         showArrows={true}   
@@ -86,10 +57,12 @@ console.log(name);
 }
 
 
+
+
 const DIV = styled.div`
  
  
- background-color:#FFF4ED;
+ background-color:white;
  margin:auto;
  width:97%;
  margin-left: 0px;
