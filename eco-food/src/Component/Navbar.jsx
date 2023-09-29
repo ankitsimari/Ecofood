@@ -1,12 +1,28 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import ButtonComponent from "./Button";
 import styled from "@emotion/styled";
+import { useDispatch, useSelector } from "react-redux";
+import { handleDarkMode } from "../Redux/ProductReducer/action";
 
 
 export default function Navbar(){
+
+  const navigate = useNavigate()
   
   const handleTop = ()=>{
     window.scrollTo(0, 0);
+  }
+
+  const mode = useSelector(store=>store.ProductsReducer.darkMode)
+
+  const dispatch= useDispatch()
+
+  const handleMode = ()=>{
+    dispatch(handleDarkMode)
+  }
+
+  const redirectLogin = ()=>{
+    navigate("/login")
   }
 
     return(
@@ -22,7 +38,7 @@ export default function Navbar(){
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ps-4 ps-lg-0 text-uppercase">
           <li className="nav-item">
-            <NavLink onClick={handleTop} className="nav-link fw-bold text-black" aria-current="page" to="/">home</NavLink>
+            <NavLink onClick={handleTop}  className="nav-link fw-bold text-black" aria-current="page" to="/">home</NavLink>
           </li>
           <li className="nav-item">
             <NavLink onClick={handleTop} className="nav-link fw-bold text-black" to="/product">Product</NavLink>
@@ -37,13 +53,14 @@ export default function Navbar(){
         <div className="d-flex flex-column flex-lg-row">
 
    
-            <ButtonComponent name="login"/>
+            <ButtonComponent name="login" onClick={redirectLogin}/>
+            {/* <ButtonComponent name={mode?"Light":"Dark"} onClick={handleMode}/> */}
           
           {/* <Button  className="btn btn-2 fw-bold px-4 mx-3 mx-lg-0  me-xl-5">{isAuth?"UserName":"Register"}</Button> */}
           {/* <NavLink to="/login" >
           {isAuth?<User/>:<Button  className="btn btn-2 fw-bold px-4 mx-3 mx-lg-0  me-xl-5">Register</Button>}
           </NavLink> */}
-          
+
 
         </div>
       </div>

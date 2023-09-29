@@ -8,6 +8,11 @@
     background-color: #DC3545;
 }
 
+.pageBtn{
+    border: 1px solid gray;
+    padding: 0px 10px !important;
+    padding-top: 0 !important;
+}
 /* .button{
     background-color: #DC3545;
     color: #f4f4f4;

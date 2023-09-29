@@ -5,6 +5,7 @@ import Dishes from '../Component/Dishes'
 import { useSelector } from 'react-redux'
 import Testimonial from '../Component/Testimonial'
 import HeroSection from '../Component/HeroSection'
+import Services from '../Component/services'
 
 export default function Home() {
   const data = useSelector(store=>store);
@@ -13,6 +14,7 @@ export default function Home() {
     <div>
       
       <HeroSection/>
+      <Services/>
       <Fruits/>
       <Dishes/>
       <Testimonial/>

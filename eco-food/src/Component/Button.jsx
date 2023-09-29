@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 export default function ButtonComponent({name,onClick}) {
   return (
     <DIV>
-  <Button className='button' onClick={onClick} variant="contained">{name}</Button>
+  <Button className='button mx-2' onClick={onClick} variant="contained">{name}</Button>
      </DIV>
   )
 }
