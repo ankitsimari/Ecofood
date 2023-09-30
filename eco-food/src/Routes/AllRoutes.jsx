@@ -11,6 +11,7 @@ import SingleCardPage from '../Component/Sagar/SingleCardPage'
 
 
 
+
 export default function AllRoutes() {
   return (
     <div>
@@ -25,6 +26,7 @@ export default function AllRoutes() {
             }/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
+
 
         </Routes>
     </div>

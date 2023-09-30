@@ -1,4 +1,4 @@
-import { GetUsersData, LoginSuccess, LoginUpdate, LogoutUpdate, SignUpFail, SignUpRequest, SignUpSuccess } from "./actionTypes"
+import { GetUsersData, LoginSuccess, LoginUpdate, LogoutUpdate, SignUpFail, SignUpRequest, SignUpSuccess, upDateOrder } from "./actionTypes"
 
 const initialState = {
     isLoading:false,
@@ -42,6 +42,12 @@ export const reducer = (state=initialState,{type,payload})=>{
             ...state,isAuth:false,loginUser:{}
         }
        }
+       case upDateOrder:{
+        return{
+            ...state,isAuth:false,[loginUser.Order]:payload
+        }
+       }
+
 
         default: return state
     }

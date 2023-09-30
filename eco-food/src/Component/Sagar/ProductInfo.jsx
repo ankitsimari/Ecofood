@@ -1,12 +1,13 @@
 import React,{useEffect,useState} from 'react';
 import { styled } from 'styled-components';
 import { BsStarFill } from 'react-icons/bs';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ButtonComponent from '../Button';
+import axios from 'axios';
 
 function ProductInfo({title,about,rating,price}) {
-
+      const [cartData,setCartData]=useState()
     const {id} =  useParams();
 
     const data = useSelector(store=>store.ProductsReducer.products);
@@ -14,14 +15,40 @@ function ProductInfo({title,about,rating,price}) {
     const main = data.filter((e=>e.id==id))
     
     const maniData = main[0]
-    // console.log(maniData);
+     console.log(maniData,"dataSigCart");
 
     // main data is singleData
+    
   
    const statarr = new Array(5).fill(0).map((e)=> <BsStarFill style={{color:"Orange"}}/>) 
 
+   const handleCart=()=>{
+
+    //make id dynamic with params()
+
+    axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+        Order:[...cartData,maniData]
+    })
+    .then((res)=>{console.log(res)})
+
+   }
+
+   useEffect(()=>{
+
+    //make id dynamic with params()
+   axios.get("https://grocryapi.onrender.com/Users/1")
+   .then((res)=>{console.log(res.data.Order,"resOrder")
+    const arr=res.data.Order
+    //arr.push(res.data.Order)
+    setCartData(arr)
+   })
+   console.log("getData user id 1")
+   },[])
+
+
     return (
        <DIV>
+        <Link to={"/cartPage"}>Cart</Link>
             <h1>{maniData.title}</h1>
             <div className='rating'>{statarr}</div> 
             <h4>48 reviews | 75k unit Sold</h4>
@@ -37,7 +64,7 @@ function ProductInfo({title,about,rating,price}) {
                 </div>
             </div>    
             <span className='tax'>(inclusive of all taxes)</span>
-            <ButtonComponent name="Add to cart" />
+            <ButtonComponent onClick={handleCart} name="Add to cart" />
         </DIV>
     );
 }
