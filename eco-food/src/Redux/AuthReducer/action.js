@@ -38,3 +38,8 @@ export const signUp = (userData) => (dispatch) => {
     dispatch({type:LogoutUpdate})
   
   }
+
+  export const upDateOrder=(data)=>(dispatch)=>{
+    console.log("update data")
+    dispatch({type:upDateOrder,payload:data})
+  }

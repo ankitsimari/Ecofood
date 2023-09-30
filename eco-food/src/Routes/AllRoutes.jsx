@@ -13,6 +13,7 @@ import ProductList from '../Component/ProductList'
 
 
 
+
 export default function AllRoutes() {
   return (
     <div>
@@ -29,6 +30,7 @@ export default function AllRoutes() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
+
 
         </Routes>
     </div>
