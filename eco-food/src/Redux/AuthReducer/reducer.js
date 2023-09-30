@@ -44,7 +44,7 @@ export const reducer = (state=initialState,{type,payload})=>{
        }
        case upDateOrder:{
         return{
-            ...state,isAuth:false,[loginUser.Order]:payload
+            ...state,isAuth:false,[state.loginUser.Order]:payload
         }
        }
 
