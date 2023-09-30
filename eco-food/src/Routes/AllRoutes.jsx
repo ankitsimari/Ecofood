@@ -8,6 +8,8 @@ import ProductInfo from '../Component/Sagar/ProductInfo'
 import { Login } from '../Component/Hemanth/Login'
 import PrivateRoutes from './PrivateRoutes'
 import SingleCardPage from '../Component/Sagar/SingleCardPage'
+import { SignUp } from '../Component/Hemanth/Signup'
+import ProductList from '../Component/ProductList'
 
 
 
@@ -16,7 +18,8 @@ export default function AllRoutes() {
     <div>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/product' element={<Products/>}/>
+            {/* <Route path='/product' element={<Products/>}/> */}
+            <Route path='/product' element={<ProductList/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/order' element={
               <PrivateRoutes>
@@ -24,6 +27,7 @@ export default function AllRoutes() {
               </PrivateRoutes>
             }/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
 
         </Routes>

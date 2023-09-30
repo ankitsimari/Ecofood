@@ -16,12 +16,11 @@ export default function BasicAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Accordion 1</Typography>
+          <Typography className='fs-5'>How does the fresh food delivery app work?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Our app connects you with local farmers and vendors who offer fresh produce and other food items.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -32,12 +31,11 @@ export default function BasicAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Accordion 2</Typography>
+          <Typography className='fs-5'>What types of fresh food can I order through the app?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          You can order a wide range of fresh food items, including fruits, vegetables, dairy products, meats, seafood, and bakery items. We also offer specialty and organic products.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -48,12 +46,11 @@ export default function BasicAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Accordion 2</Typography>
+          <Typography className='fs-5'> Is there a minimum order requirement?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Minimum order requirements may vary depending on your location and the specific vendors you choose. Details will be provided during the ordering process.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -64,12 +61,11 @@ export default function BasicAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Accordion 2</Typography>
+          <Typography className='fs-5'>How do I pay for my orders?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          We accept various payment methods, including credit/debit cards, mobile wallets, and online payment platforms. You can securely pay for your orders during the checkout process.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -80,12 +76,11 @@ export default function BasicAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Accordion 2</Typography>
+          <Typography className='fs-5'> What is the delivery fee?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Delivery fees may vary based on your location and the distance to the vendor. The app will display the delivery fee before you confirm your order.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -96,12 +91,11 @@ export default function BasicAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Accordion 2</Typography>
+          <Typography className='fs-5'>What if I receive a damaged or incorrect item in my order?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          If you encounter any issues with your order, please contact our customer support immediately. We will work to resolve the issue and ensure your satisfaction.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -118,4 +112,6 @@ const DIV = styled.div`
   border: 1px solid #f4f4f4;
 
 }
+
+
 `
