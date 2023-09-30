@@ -9,9 +9,9 @@ const SingleCardPage = () => {
     return (
         <div>
             <Header/>
-            <BenefitVideo/>
+            {/* <BenefitVideo/>
             <SimilarProduct/>
-            <OtherProduct/>
+            <OtherProduct/> */}
         </div>
     );
 };
