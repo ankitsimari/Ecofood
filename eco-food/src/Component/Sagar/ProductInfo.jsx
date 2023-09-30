@@ -48,15 +48,17 @@ function ProductInfo({title,about,rating,price}) {
 
     return (
        <DIV>
+
         <Link to={"/cartPage"}>Cart</Link>
             <h1>{maniData.title}</h1>
+
             <div className='rating'>{statarr}</div> 
             <h4>48 reviews | 75k unit Sold</h4>
-            <p>{maniData.about}</p>
-            <span className='amountSpan' >MRP: <span className='amount'>₹ {maniData.price+1000}</span ></span> 
+            <p>{maniData?.about}</p>
+            <span className='amountSpan' >MRP: <span className='amount'>₹ {maniData?.price+1000}</span ></span> 
             <div className='paySave'>
                 <div>
-                    <span className='pay'>You Pay: ₹ {maniData.price} </span>
+                    <span className='pay'>You Pay: ₹ {maniData?.price} </span>
                  </div> 
                  <div className='save'>    
                        <span>(SAVE ₹ 1000)</span>

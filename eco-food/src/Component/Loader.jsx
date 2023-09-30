@@ -23,7 +23,11 @@ place-items:center;
     lord-icon{
         width: 250px;
         height:250px;
-        margin-top: -100px;
+        /* margin-top: -100px; */
+        position: fixed;
+        top: 30%;
+        left: 40%;
+        /* translate: transform(-50%); */
     }
 
 `

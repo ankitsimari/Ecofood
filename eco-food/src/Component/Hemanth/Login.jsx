@@ -3,15 +3,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getUsers, login, logout } from "../../Redux/AuthReducer/action";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginSuccess } from "../../Redux/AuthReducer/actionTypes";
-import { Alert } from "@mui/material";
+// import { Alert } from "@mui/material";
 import ButtonComponent from "../Button";
+import Swal from 'sweetalert2'
 
 export const Login = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const Users = useSelector((store) => {
     console.log("store", store.AuthReducer);
@@ -41,84 +43,130 @@ export const Login = () => {
       return e.email == Data.email;
     });
 
-    console.log(emData, "emData");
+    // console.log(emData, "emData");
     if (emData.length != 0) {
       if (emData[0].password === Data.password) {
         console.log("successful login ");
-      
-        alert("login Success");
+        
+        Swal.fire({
+          title: 'Login Successful',
+          text: 'You are Logged in Successfully!',
+          icon: 'success', // Set the icon to 'success'
+          confirmButtonColor: '#DC3545'
+        });
+        // alert("login Success");
         dispatch(login(emData[0]));
+        navigate(-1)
       } else {
         console.log("wrond password");
-        alert("wrong password")
+        Swal.fire({
+          title: 'Wrong Password',
+          text: 'Enter Correct Credential',
+          icon: 'error',
+          confirmButtonColor: '#DC3545'
+        })
       }
     } else {
       console.log("email not found");
-      alert("email not matched")
+      Swal.fire({
+        title: 'Email not Found',
+        text: 'Enter Correct Credential',
+        icon: 'error',
+        confirmButtonColor: '#DC3545'
+      })
     }
   };
-  const handleLogout = () => {
-    dispatch(logout);
-  };
+  // const handleLogout = () => {
+  //   dispatch(logout);
+  // };
 
   useEffect(() => {
     dispatch(getUsers);
   }, []);
   return (
     <>
-      <DIV>
-        <div className="logout">
+      <DIV className="my-5">
+        {/* <div className="logout">
           <h1>logout</h1>
-          {/* <button onClick={handleLogout}>logout</button> */}
           <ButtonComponent onClick={handleLogout} name={"logout"} />
-        </div>
+        </div> */}
 
-        <div className="login">
-          <h1>Login</h1>
-          <Link to="/signup">signUp</Link>
-          {isAuth?<Alert severity="success">login successful</Alert>:
-          <Alert severity="info">login for better experince</Alert>
-          }
-          <label htmlFor="">email</label>
+
+        <div className="login container">
+          <div className="row">
+            <div className="col-md-7 d-none d-lg-grid">
+              <img className="w-100" src="https://img.freepik.com/premium-vector/set-fastfood-items-vector-illustration_920128-50.jpg?w=2000" alt="" />
+            </div>
+
+
+
+
+            <div className="col-md-5">
+
+              <div className="">
+
+             
+            <label className="fs-4" htmlFor="">Email</label>
+            <br />
           <input
+          className="px-2 fs-5"
             type="text"
             value={email}
+            placeholder="Email"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-          <label htmlFor="">password</label>
+
+            <br />
+
+          <label className="fs-4" htmlFor="">Password</label>
+          <br />
           <input
-            type="number"
+          className="px-2 fs-5"
+            type="text"
             value={password}
+            placeholder="Password"
             onChange={(e) => {
               setPassword(+e.target.value);
             }}
           />
+          <br />
           {/* <button onClick={handleSubmit}>submit</button> */}
-          <ButtonComponent onClick={handleSubmit} name={"submit"} />
+
+          <span className="d-flex justify-content-between mt-2">
+          <ButtonComponent  onClick={handleSubmit} name={"submit"} />
+
+          <Link className="me-5 text-danger text-decoration-none" to="/signup">
+           New User? signUp
+          </Link>
+          </span>
+
+          </div>
+            </div>
+          </div>
+          {/* <h1>Login</h1> */}
+
+          {/* {isAuth ? (
+            <Alert severity="success">login successful</Alert>
+          ) : (
+            <Alert severity="info">login for better experince</Alert>
+          )} */}
+
+
+
+ 
         </div>
       </DIV>
     </>
   );
 };
 const DIV = styled.div`
-.login{
 
-    width: 40%;
+  .login {
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
-    border: 1px solid black;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 20px;
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.3s;
-}
+  }
 
   button {
     margin-top: 10px;
@@ -126,5 +174,28 @@ const DIV = styled.div`
   }
   h1 {
     color: #dc3545;
+  }
+
+  input{
+   width: 90%;
+    height: 42px;
+    margin-left: 5px;
+    /* margin:10px; */
+    /* display: block; */
+  }
+
+  label{
+    margin: 5px;
+
+  }
+
+  img{
+    height: 400px;
+    mix-blend-mode: multiply;
+  }
+
+  .col-md-5{
+    height: 400px;
+    margin-top: 70px;
   }
 `;

@@ -4,6 +4,9 @@ import { getProducts,getCount } from '../Redux/ProductReducer/action';
 import ProductCard from './ProductCard';
 import { useSearchParams } from "react-router-dom";
 import styled from '@emotion/styled';
+import Loader from './Loader';
+import { Sidebar } from './Sidebar';
+import Filter from './Filter';
 
 export default function ProductList() {
 
@@ -15,6 +18,8 @@ export default function ProductList() {
   const data = useSelector(store=>store.ProductsReducer.products);
 
   const length = useSelector(store=>store.ProductsReducer.length);
+
+  
 
   const Total = Math.ceil(length/6)
   
@@ -43,13 +48,31 @@ export default function ProductList() {
       _sort:searchParams.get("order")?"price":null
     }
   }
+
+  const loading = useSelector(store=>store.ProductsReducer.isLoading);
+  console.log(loading)
+
   
   useEffect(()=>{
     dispatch(getProducts(paramsObj,page));
     dispatch(getCount)
   },[searchParams,page])
-
+  
+  if(loading){
+return <Loader/>
+  }
   return (
+
+    <div className='container my-5'>
+    {/* <h2 className='text-center m-5'>Products Page</h2> */}
+    <Filter/>
+    <div className='d-flex'>
+  <div className='sidebar'>
+  <Sidebar/>
+  </div>
+  <div className='List'>
+    {/* <ProductList/> */}
+
     <div>
     <div className='m-4' style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)"}}>
         {data && data.map((e)=>(
@@ -74,6 +97,12 @@ export default function ProductList() {
 
 
     </div>
+  </div>
+    </div>
+
+</div>
+
+
   )
 }
 
