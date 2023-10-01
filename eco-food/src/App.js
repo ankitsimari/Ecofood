@@ -6,7 +6,6 @@ import Footer from './Component/Footer';
 import Navbar from './Component/Navbar';
 import SingleCardPage from './Component/Sagar/SingleCardPage';
 import AllRoutes from './Routes/AllRoutes';
-import Payment from './Component/Sagar/Payment/Payment';
 
 
 function App() {
@@ -14,11 +13,10 @@ function App() {
   return (
     <div className="App" style={{backgroundColor:mode?"black":"#f4f4f4",color:mode?"white":"black"}}>
       {/* <Loader/> */}
-      {/* <Navbar/>
+      <Navbar/>
       <AllRoutes/>
       <BasicAccordion/>
-      <Footer/> */}
-      <Payment/>
+      <Footer/>
     </div>
   );
 }
