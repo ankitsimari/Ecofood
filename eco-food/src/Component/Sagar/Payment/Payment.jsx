@@ -1,10 +1,12 @@
-import { FormControl,InputLabel,Input,FormHelperText } from '@mui/material';
+import { FormControl,InputLabel,Input,FormHelperText,Box } from '@mui/material';
 import React, { memo, useEffect, useMemo, useReducer, useState } from 'react';
 import { styled } from 'styled-components';
 import ProgressBar from './ProgressBar';
 import PaymentButton from './PaymentButton';
-
-
+import { Home,CreditCard,pay} from '@mui/icons-material';
+import CreditCardForm from './CreditCardForm';
+import InternetBankingForm from "./InternetBankingForm";
+import UPIForm from './UPIForm';
 
 const initialState= {
 
@@ -56,6 +58,7 @@ const Payment = () => {
 
     const [page,setPage] = useState(0);
     const [state,dispatch] = useReducer(reducer,initialState);
+    const [paymentMode,setPaymentMode] = useState("card");
 
     const handleNext = ()=>{
 
@@ -73,7 +76,11 @@ const Payment = () => {
        let {name,value}= e.target; 
         dispatch({type:name,payload:value});
     }
-
+ 
+    const handlePaymentDiv=(e)=>{   
+        const {id} = e.target;
+        setPaymentMode(id)
+    }
  
    
 
@@ -204,9 +211,25 @@ const Payment = () => {
                 </div> 
             </div>
           </div>  
-         
+
+
+          <PAYDIV className={page==2?'addressDiv':"blockDiv"}>
+            <div className='sideDiv'>
+               <div style={{paddingLeft:"30px",border:"1px solid rgba(0,0,0,.125)"}} >PAY WITH</div>
+               <div className={paymentMode=="card"?'active_pay_SideDiv':""} id="card" onClick={handlePaymentDiv}  style={{border:"1px solid rgba(0,0,0,.125)"}} ><img width="30" height="35" disabled={true} style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/fluency/48/card-in-use.png" alt="card-in-use"/>  Card</div>
+               <div className={paymentMode=="ib"?'active_pay_SideDiv':""}   id="ib" onClick={handlePaymentDiv} style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="30" height="33"  style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/external-avoca-kerismaker/64/external-Internet-Banking-finance-avoca-kerismaker.png" alt="external-Internet-Banking-finance-avoca-kerismaker"/>Internet Banking</div>
+               <div className={paymentMode=="upi"?'active_pay_SideDiv':""}   id="upi" onClick={handlePaymentDiv} style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="40" height="40" style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/ios/50/40C057/bhim-upi.png" alt="bhim-upi"/>UPI</div>
+               <div style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="35" height="35" style={{marginRight:"10px",marginLeft:"10px"}}  src="https://img.icons8.com/external-flat-juicy-fish/60/external-qr-hands-and-gestures-flat-flat-juicy-fish.png" alt="external-qr-hands-and-gestures-flat-flat-juicy-fish"/>By Scan QR</div> 
+            </div>     
+        
+            <CreditCardForm paymentMode={paymentMode}/>
+            <UPIForm paymentMode={paymentMode}/> 
+            <InternetBankingForm paymentMode={paymentMode}/>  
+
+           </PAYDIV>
+           
           <PaymentButton handleBack={handleBack} handleNext={handleNext} page={page}/>
-      
+        
         </Div>
     );
 };
@@ -214,7 +237,8 @@ export default Payment;
 
 
 const Div = styled.div`
- 
+background-color: #e4e6ec;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 display: flex;
 flex-direction: column;
 margin: auto;
@@ -226,7 +250,7 @@ padding-left: 40px;
 padding-right: 40px;
 padding-top: 10px;
 margin-top: 20px;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+/* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 .two{   
    display: flex;
    gap: 20px;
@@ -237,9 +261,9 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
 .two input{
    background-color: white;
    width:300px;
-   height: 35px;
+   height: 45px;
   border: none;
-   font-size: 15px;
+   font-size: 16px;
    color: darkblue;
    /* border-radius: 10px; */
    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -248,13 +272,22 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
 .one input{
    background-color: white;
    width:620px;
-   height: 35px;
+   height: 45px;
    border:none;
-   font-size: 15px;
+   font-size: 16px;
    color: darkblue;
    /* border-radius: 10px; */
    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+ .one input:hover{
+    border:1px solid blue;
+ }
+
+ .two input:hover{
+    border:1px solid blue;
+ }
+
 
 .inputDiv{
  display:flex;
@@ -271,6 +304,51 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
      transition: transform 0.5s ease-in;
      transform: rotate(20);
 }
+
+`
+
+
+const PAYDIV= styled.div`
+width: 690px;
+height: 460px;
+/* border: 1px solid red; */
+display: flex;
+flex-direction: row;
+gap: 0px;
+background-color: #FBFCFE;
+.sideDiv{
+ width: fit-content;
+ height: 100%;
+ background-color: #F8F9FA;
+ border:1px solid rgba(0,0,0,.125);
+}
+
+.sideDiv div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    text-align: left;
+    /* border: 1px solid black; */
+    background-color: #F8F9FA;
+     padding-left: 20px;
+     padding-right: 20px;
+}
+
+.activePaymentMode{
+    display: block;
+}
+
+.paymentMode{
+    display: none;
+}
+
+.sideDiv .active_pay_SideDiv{
+    background-color: #dc3545;
+    color:white;
+    opacity: 10;
+}
+
 
 `
 
