@@ -78,6 +78,7 @@ export default function Navbar() {
                   onClick={handleTop}
                   className="nav-link fw-bold text-black"
                   to="/product"
+                  
                 >
                   Product
                 </NavLink>
