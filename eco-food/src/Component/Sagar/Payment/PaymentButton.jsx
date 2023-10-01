@@ -20,14 +20,10 @@ return (
   >
     Back
   </Button>
-  <Box sx={{ flex: '1 1 auto' }} />
 
-  <Button 
-  onClick={handleNext}
-  >
-    {page==2? 'Pay' : 'Next'}
-  </Button>
-</Box>
+  <Box  sx={{ flex: '1 1 auto' }} />
+      { page!=2 && <Button style={{color:"#0d6efd"}} onClick={handleNext}>{page==2? 'Pay' : 'Next'}</Button>}
+  </Box>
 </React.Fragment>
             
         </div>
