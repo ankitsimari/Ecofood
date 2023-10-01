@@ -12,7 +12,7 @@ function App() {
   const mode = useSelector(store=>store.ProductsReducer.darkMode)
   return (
     <div className="App" style={{backgroundColor:mode?"black":"#f4f4f4",color:mode?"white":"black"}}>
-      {/* <Loader/> */}
+
       <Navbar/>
       <AllRoutes/>
       <BasicAccordion/>
