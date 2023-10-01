@@ -29,7 +29,11 @@ export default function AllRoutes() {
               </PrivateRoutes>
             }/>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/cartPage' element={<CartPage/>}/>
+            <Route path='/cartPage' element={
+            <PrivateRoutes>
+              <CartPage/>
+            </PrivateRoutes>
+            }/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
 

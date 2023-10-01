@@ -5,9 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleDarkMode } from "../Redux/ProductReducer/action";
 import { logout } from "../Redux/AuthReducer/action";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const[users,setUsers]=useState();
+  
 
   const handleTop = () => {
     window.scrollTo(0, 0);
@@ -18,6 +22,21 @@ export default function Navbar() {
     return store.AuthReducer.isAuth;
   });
 
+  const order = useSelector((store) => {
+    return store.AuthReducer.loginUser.Order
+  });
+  const logEmail= useSelector((store) => {
+    return store.AuthReducer.loginUser.email
+  });
+  const logId= useSelector((store) => {
+    return store.AuthReducer.loginUser.id
+  });
+ 
+
+  
+
+
+
   const dispatch = useDispatch();
 
   const handleMode = () => {
@@ -25,18 +44,46 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    dispatch(logout);
-    Swal.fire({
-      title: "Logout Successful",
-      text: "You are Logged out Successfully!",
-      icon: "success", // Set the icon to 'success'
-      confirmButtonColor: "#DC3545",
-    });
+
+      console.log(order,"nav order")
+      console.log(logEmail,"logEmail")
+      
+      const userData=users.filter((e,i)=>{return e.email==logEmail})
+      console.log(userData,"userDate")
+
+       //update user api with new order details at the time of user log out
+       axios.patch(`https://grocryapi.onrender.com/Users/${userData[0].id}`,{
+        Order:[...order]
+       })
+       .then((res)=>{console.log(res)})
+
+
+       //update loggedIn api with delete action and making it empty
+       axios.delete(`https://grocryapi.onrender.com/LoggedIn/${logId}`)
+       .then((res)=>{console.log(res)})
+
+       
+     dispatch(logout);
+
+      Swal.fire({
+        title: "Logout Successful",
+        text: "You are Logged out Successfully!",
+        icon: "success", // Set the icon to 'success'
+        confirmButtonColor: "#DC3545",
+     });
   };
 
   const redirectLogin = () => {
     navigate("/login");
   };
+
+  useEffect(()=>{
+    axios.get("https://grocryapi.onrender.com/Users")
+    .then((res)=>{console.log(res.data)
+    setUsers(res.data)
+    })
+      
+  },[isAuth])
 
   return (
     <>

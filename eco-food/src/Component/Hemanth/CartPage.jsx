@@ -10,7 +10,7 @@ export const CartPage = () => {
   const [totalPrice, setTotal] = useState(0);
   const [orderSt, setOrderSt] = useState([]);
   const dispatch=useDispatch()
-
+  const logId = useSelector(store=>store.AuthReducer.loginUser.id);
   //const orderArr = [];
   // const orderLs = localStorage.getItem("cartData");
   // let orderArr=[]
@@ -44,7 +44,8 @@ export const CartPage = () => {
     setCartArr(arr);
 
     //updating API
-    axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+   // axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+    axios.patch(`https://grocryapi.onrender.com/LoggedIn/${logId}`,{
       Order:[...arr]
      })
      .then((res)=>{console.log(res)})
@@ -56,14 +57,17 @@ export const CartPage = () => {
      const handleDec=(id)=>{
       const arr = cartArr.map((e, i) => {
         if (e.id == id) {
-          e.quantity--;
-          e.total = e.price * e.quantity;
+          if(e.quantity>1){
+            e.quantity--;
+            e.total = e.price * e.quantity;
+          }
         }
         return e;
       });
       setCartArr(arr);
 
-      axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+      //axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+      axios.patch(`https://grocryapi.onrender.com/LoggedIn/${logId}`,{
       Order:[...arr]
      })
      .then((res)=>{console.log(res)})
@@ -79,7 +83,8 @@ export const CartPage = () => {
 
     setCartArr(arr);
 
-    axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+    //axios.patch(`https://grocryapi.onrender.com/Users/1`,{
+    axios.patch(`https://grocryapi.onrender.com/LoggedIn/${logId}`,{
       Order:[...arr]
      })
      .then((res)=>{console.log(res)})
@@ -92,7 +97,9 @@ export const CartPage = () => {
 
   useEffect(() => {
     //make id dynamic with params()
-    axios.get("https://grocryapi.onrender.com/Users/1").then((res) => {
+  
+   // axios.get("https://grocryapi.onrender.com/Users/1").then((res) => {
+    axios.get(`https://grocryapi.onrender.com/LoggedIn/${logId}`).then((res) => {
       console.log(res.data.Order, "resOrder cartPage");
       const arr = res.data.Order.map((e, i) => {
         if(e.quantity==undefined){
