@@ -35,7 +35,7 @@ export default function DishesCard({name}) {
   return (
 <DIV >
 
-    <div className='shadow rounded ' onClick={handleCategory}>
+    <div className='shadow rounded ' activeclassName="active" onClick={handleCategory}>
    <FaFilter className="bomb fs-2"/>
     <h6>{name}</h6>
     </div>
@@ -73,6 +73,13 @@ div:hover{
     }
     div:hover .bomb{
         background-color: white;
+        color: #DC3545;
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    .active{
+      background-color: white;
         color: #DC3545;
         border-radius: 50%;
         padding: 5px;
