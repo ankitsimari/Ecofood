@@ -1,18 +1,16 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Home'
-import Products from './Products'
 import About from './About'
 import Order from './Order'
-import ProductInfo from '../Component/Sagar/ProductInfo'
 import { Login } from '../Component/Hemanth/Login'
 import PrivateRoutes from './PrivateRoutes'
 import SingleCardPage from '../Component/Sagar/SingleCardPage'
 import { SignUp } from '../Component/Hemanth/Signup'
 import ProductList from '../Component/ProductList'
 import { CartPage } from '../Component/Hemanth/CartPage'
-import AdminSidebar from '../AdminPage/AdminSideBar'
-import AdminMain from './AdminMain'
+import Payment from '../Component/Sagar/Payment/Payment'
+
 
 
 
@@ -34,12 +32,17 @@ export default function AllRoutes() {
             <Route path='/cartPage' element={
             <PrivateRoutes>
               <CartPage/>
-            </PrivateRoutes>
+          </PrivateRoutes>
             }/>
             <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/payment' element={<Payment/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
-
-
+{/* 
+            <Route path='/adminList' element={<AdminProductManage/>}/>
+            <Route path='/addNewProduct' element={<AdminAddProduct/>}/>
+            <Route
+             path="/edit/:id"
+        element={  <AdminEditProduct /> }/> */}
 
             
 

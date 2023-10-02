@@ -7,11 +7,11 @@ import { logout } from "../Redux/AuthReducer/action";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BsFillBagDashFill } from "react-icons/bs";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const[users,setUsers]=useState();
-  
+  const [users, setUsers] = useState();
 
   const handleTop = () => {
     window.scrollTo(0, 0);
@@ -23,19 +23,14 @@ export default function Navbar() {
   });
 
   const order = useSelector((store) => {
-    return store.AuthReducer.loginUser.Order
+    return store.AuthReducer.loginUser.Order;
   });
-  const logEmail= useSelector((store) => {
-    return store.AuthReducer.loginUser.email
+  const logEmail = useSelector((store) => {
+    return store.AuthReducer.loginUser.email;
   });
-  const logId= useSelector((store) => {
-    return store.AuthReducer.loginUser.id
+  const logId = useSelector((store) => {
+    return store.AuthReducer.loginUser.id;
   });
- 
-
-  
-
-
 
   const dispatch = useDispatch();
 
@@ -44,46 +39,50 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
+    console.log(order, "nav order");
+    console.log(logEmail, "logEmail");
 
-      console.log(order,"nav order")
-      console.log(logEmail,"logEmail")
-      
-      const userData=users.filter((e,i)=>{return e.email==logEmail})
-      console.log(userData,"userDate")
+    const userData = users.filter((e, i) => {
+      return e.email == logEmail;
+    });
+    console.log(userData, "userDate");
 
-       //update user api with new order details at the time of user log out
-       axios.patch(`https://grocryapi.onrender.com/Users/${userData[0].id}`,{
-        Order:[...order]
-       })
-       .then((res)=>{console.log(res)})
+    //update user api with new order details at the time of user log out
+    axios
+      .patch(`https://grocryapi.onrender.com/Users/${userData[0].id}`, {
+        Order: [...order],
+      })
+      .then((res) => {
+        console.log(res);
+      });
 
+    //update loggedIn api with delete action and making it empty
+    axios
+      .delete(`https://grocryapi.onrender.com/LoggedIn/${logId}`)
+      .then((res) => {
+        console.log(res);
+      });
 
-       //update loggedIn api with delete action and making it empty
-       axios.delete(`https://grocryapi.onrender.com/LoggedIn/${logId}`)
-       .then((res)=>{console.log(res)})
+    dispatch(logout);
 
-       
-     dispatch(logout);
-
-      Swal.fire({
-        title: "Logout Successful",
-        text: "You are Logged out Successfully!",
-        icon: "success", // Set the icon to 'success'
-        confirmButtonColor: "#DC3545",
-     });
+    Swal.fire({
+      title: "Logout Successful",
+      text: "You are Logged out Successfully!",
+      icon: "success", // Set the icon to 'success'
+      confirmButtonColor: "#DC3545",
+    });
   };
 
   const redirectLogin = () => {
     navigate("/login");
   };
 
-  useEffect(()=>{
-    axios.get("https://grocryapi.onrender.com/Users")
-    .then((res)=>{console.log(res.data)
-    setUsers(res.data)
-    })
-      
-  },[isAuth])
+  useEffect(() => {
+    axios.get("https://grocryapi.onrender.com/Users").then((res) => {
+      console.log(res.data);
+      setUsers(res.data);
+    });
+  }, [isAuth]);
 
   return (
     <>
@@ -109,13 +108,13 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ps-4 ps-lg-0 text-uppercase">
-              <li className="nav-item" >
+              <li className="nav-item">
                 <NavLink
                   onClick={handleTop}
                   className="nav-link fw-bold "
                   aria-current="page"
                   to="/"
-                  style={{color:mode?"white":"black"}}
+                  style={{ color: mode ? "white" : "black" }}
                 >
                   home
                 </NavLink>
@@ -125,7 +124,6 @@ export default function Navbar() {
                   onClick={handleTop}
                   className="nav-link fw-bold text-black"
                   to="/product"
-                  
                 >
                   Product
                 </NavLink>
@@ -150,10 +148,10 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="d-flex flex-column flex-lg-row">
-              <ButtonComponent
+              {/* <ButtonComponent
                 name={mode ? "Light" : "Dark"}
                 onClick={handleMode}
-              />
+              /> */}
 
               {/* <Button  className="btn btn-2 fw-bold px-4 mx-3 mx-lg-0  me-xl-5">{isAuth?"UserName":"Register"}</Button> */}
               {/* <NavLink to="/login" >
@@ -165,6 +163,12 @@ export default function Navbar() {
               ) : (
                 <ButtonComponent name="login" onClick={redirectLogin} />
               )}
+
+              {/* <ButtonComponent
+                name={<BsFillBagDashFill/>}
+                onClick={handleMode}
+              /> */}
+              <Link to={"/cartPage"} className="bg-none border-0 cart-btn ms-lg-3 text-danger fs-3"><BsFillBagDashFill/></Link>
             </div>
           </div>
         </div>
@@ -176,5 +180,8 @@ export default function Navbar() {
 const DIV = styled.nav`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  
+
+  .cart-btn{
+    margin-top: -5px;
+  }
 `;
