@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card from '@mui/joy/Card';
 import CardActions from '@mui/joy/CardActions';
 import CardContent from '@mui/joy/CardContent';
+import Checkbox from '@mui/joy/Checkbox';
 import Divider from '@mui/joy/Divider';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
@@ -9,6 +10,7 @@ import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import InfoOutlined from '@mui/icons-material/InfoOutlined';
+import {Password} from '@mui/icons-material';
 
 export default function InternetBankingForm({paymentMode}) {
   return (

@@ -1,8 +1,11 @@
 import { Box,Button } from '@mui/material';
 import React from 'react';
 
-
 const PaymentButton = ({page,handleBack,handleNext}) => {
+
+
+
+
 
 return (
      <div>

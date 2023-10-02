@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import YouTube,{iframe} from "react-youtube"
+import YouTube from "react-youtube"
 
 const VideoPlayer = () => {
   
@@ -19,7 +19,7 @@ const VideoPlayer = () => {
 
 
 
-  const videoId = 'nsBdBkyLW_8'; // Replace with your YouTube video ID
+  const videoId = 'BGwb8_hbzUM'; // Replace with your YouTube video ID
 
   // Options for the YouTube player (you can customize these)
   const opts = {
@@ -31,17 +31,12 @@ const VideoPlayer = () => {
      width:  (width>=350 && width<=450)?150:(width>=451 && width<=550)?180:(width>=551 && width<=850)?260:(width>=851 && width<=1050)?370:(width>=1051 && width<=1300)?500:(width>=1301 && width<=1600)?600:650,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 0, // Auto-play the video
-      fs:0,
-      iv_load_policy:3,
-      rel:0,
-      showinfo: 1,
-      controls: 0,
+      autoplay: 1, // Auto-play the video
     },
   };
 
   return (
-    <div id="youtube-player" className="youtube-embed">
+    <div>
       <YouTube videoId={videoId} opts={opts} />
     </div>
   );

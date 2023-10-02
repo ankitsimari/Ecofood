@@ -8,8 +8,6 @@ import { LoginSuccess } from "../../Redux/AuthReducer/actionTypes";
 // import { Alert } from "@mui/material";
 import ButtonComponent from "../Button";
 import Swal from 'sweetalert2'
-import { left } from "@popperjs/core";
-import { getAdminProducts } from "../../Redux/ProductReducer/action";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,10 +21,6 @@ export const Login = () => {
   });
   const isAuth = useSelector((store) => {
     return store.AuthReducer.isAuth;
-  });
-  const st = useSelector((store) => {
-    console.log(store,"newstore checl")
-    return store.ProductReducer;
   });
 
   // const getData=()=>{
@@ -88,11 +82,9 @@ export const Login = () => {
 
   useEffect(() => {
     dispatch(getUsers);
-    dispatch(getAdminProducts({}))
   }, []);
   return (
     <>
-    <Link to="/adminList"  style={{marginRight:"0px"}}>ADMIN PRODUCT LIST</Link>
       <DIV className="my-5">
         {/* <div className="logout">
           <h1>logout</h1>
