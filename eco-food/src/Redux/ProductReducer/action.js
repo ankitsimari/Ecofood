@@ -1,4 +1,4 @@
-import { DarkMode, GET_ADMIN_PRODUCT, TotalData, getProductFail, getProductRequest, getProductSuccess } from "./actionTypes"
+
 import axios from "axios"
 
 export const getProducts = (paramsObj,page) => (dispatch)=>{

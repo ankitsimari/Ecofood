@@ -1,4 +1,4 @@
-import { DarkMode, GET_ADMIN_PRODUCT, TotalData, getProductFail, getProductRequest, getProductSuccess } from "./actionTypes"
+
 
 const initialState = {
     isLoading:false,
@@ -6,7 +6,7 @@ const initialState = {
     products:[],
     darkMode:false,
     length:0,
-}
+
 
 
 export const reducer = (state=initialState,{type,payload})=>{
@@ -20,7 +20,7 @@ export const reducer = (state=initialState,{type,payload})=>{
         case DarkMode:
             return {...state,darkMode:!state.darkMode}
         case TotalData:
-            return {...state,length:payload} 
+
         default: return state
     }
 }
