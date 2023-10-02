@@ -1,14 +1,139 @@
-import React from 'react'
+// import React from "react";
+// import {
+//   MDBCarousel,
+//   MDBCarouselInner,
+//   MDBCarouselItem,
+//   MDBContainer,
+//   MDBRow,
+//   MDBCol,
+//   MDBIcon,
+// } from "react/mdb-react-ui-kit";
 
-export default function Testimonial() {
-  return (
-    <div className='container themeBg p-3 shadow rounded text-white text-center '>
-    <div className="row">
-        <div className="col-md">
-        <h2 className='m-3'>Testimonial</h2>
-        <p className='mx-2 mx-lg-5 px-lg-5 fw-bold'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus libero obcaecati in quod amet reiciendis ducimus reprehenderit saepe odio fugiat accusantium nemo, nobis incidunt quibusdam eaque? Veritatis sunt neque accusamus fugit numquam, reiciendis doloremque molestias beatae tenetur sed nihil reprehenderit possimus sequi deleniti fugiat asperiores repellendus officia cumque vel corporis unde dolores, impedit quibusdam ipsam! Ipsum ipsa iusto neque quas?</p>
-        </div>
-    </div>
-</div>
-  )
-}
+
+
+// export default function Testimonial() {
+//   return (
+//     <div>
+//         <MDBContainer className="my-5">
+//       <MDBCarousel showControls dark>
+//         <MDBCarouselInner>
+//           <MDBCarouselItem className="active text-center">
+//             <img
+//               src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+//               alt="avatar"
+//               className="rounded-circle shadow-1-strong mb-4"
+//               style={{ width: "150px" }}
+//             />
+//             <MDBRow className="d-flex justify-content-center">
+//               <MDBCol lg="8">
+//                 <h5 className="mb-3">Maria Kate</h5>
+//                 <p>Photographer</p>
+//                 <p className="text-muted">
+//                   <MDBIcon fas icon="quote-left" className="pe-2" />
+//                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+//                   et deleniti nesciunt sint eligendi reprehenderit reiciendis,
+//                   quibusdam illo, beatae quia fugit consequatur laudantium velit
+//                   magnam error. Consectetur distinctio fugit doloremque.
+//                 </p>
+//               </MDBCol>
+//             </MDBRow>
+//             <ul className="list-unstyled d-flex justify-content-center text-warning mb-0">
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon far icon="star" size="sm" />
+//               </li>
+//             </ul>
+//           </MDBCarouselItem>
+
+//           <MDBCarouselItem className="text-center">
+//             <img
+//               src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
+//               alt="avatar"
+//               className="rounded-circle shadow-1-strong mb-4"
+//               style={{ width: "150px" }}
+//             />
+//             <MDBRow className="d-flex justify-content-center">
+//               <MDBCol lg="8">
+//                 <h5 className="mb-3">John Doe</h5>
+//                 <p>Web Developer</p>
+//                 <p className="text-muted">
+//                   <MDBIcon fas icon="quote-left" className="pe-2" />
+//                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+//                   et deleniti nesciunt sint eligendi reprehenderit reiciendis.
+//                 </p>
+//               </MDBCol>
+//             </MDBRow>
+//             <ul className="list-unstyled d-flex justify-content-center text-warning mb-0">
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon far icon="star" size="sm" />
+//               </li>
+//             </ul>
+//           </MDBCarouselItem>
+
+//           <MDBCarouselItem className="text-center">
+//             <img
+//               src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+//               alt="avatar"
+//               className="rounded-circle shadow-1-strong mb-4"
+//               style={{ width: "150px" }}
+//             />
+//             <MDBRow className="d-flex justify-content-center">
+//               <MDBCol lg="8">
+//                 <h5 className="mb-3">Anna Deynah</h5>
+//                 <p>Web Developer</p>
+//                 <p className="text-muted">
+//                   <MDBIcon fas icon="quote-left" className="pe-2" />
+//                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+//                   et deleniti nesciunt sint eligendi reprehenderit reiciendis,
+//                   quibusdam illo, beatae quia fugit consequatur laudantium velit
+//                   magnam error. Consectetur distinctio fugit doloremque.
+//                 </p>
+//               </MDBCol>
+//             </MDBRow>
+//             <ul className="list-unstyled d-flex justify-content-center text-warning mb-0">
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon fas icon="star" size="sm" />
+//               </li>
+//               <li>
+//                 <MDBIcon far icon="star" size="sm" />
+//               </li>
+//             </ul>
+//           </MDBCarouselItem>
+//         </MDBCarouselInner>
+//       </MDBCarousel>
+//     </MDBContainer>
+//     </div>
+//   )
+// }

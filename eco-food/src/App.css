@@ -20,6 +20,8 @@
 } */
 
 
+
+
 .navContainer{
     display: flex;
     justify-content: space-evenly !important;
@@ -33,6 +35,7 @@
   .nav-link.active {
     color: #DC3545 !important;
     border-bottom: 2px solid #DC3545;
+    background-color: transparent;
   }
 
 .hero_h1{
