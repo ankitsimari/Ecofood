@@ -1,57 +1,11 @@
-import { FormControl,InputLabel,Input,FormHelperText,Box } from '@mui/material';
-import React, { memo, useEffect, useMemo, useReducer, useState } from 'react';
+import React, {useReducer, useState } from 'react';
 import { styled } from 'styled-components';
 import ProgressBar from './ProgressBar';
 import PaymentButton from './PaymentButton';
-import { Home,CreditCard,pay} from '@mui/icons-material';
 import CreditCardForm from './CreditCardForm';
 import InternetBankingForm from "./InternetBankingForm";
 import UPIForm from './UPIForm';
-
-const initialState= {
-
-    name:"",
-    surname:"",
-    email:"",
-    mobileNumber:"",
-    address1:"",
-    address2:"",
-    city:"",
-    postcode:"",
-    country:"India",
-    state:"",
-}
-
-
-const reducer = (state,{type,payload})=>{
-
-
-    switch(type){
-       
-        case "name": 
-            return {...state,name:payload}; 
-        case "surname":
-            return {...state,surname:payload};
-        case "email":
-            return {...state,email:payload}; 
-        case "mobileNumber":
-            return {...state,mobileNumber:payload};
-        case "address1":
-            return {...state,address1:payload};
-        case "address2":
-            return {...state,address2:payload};  
-        case "city":
-            return {...state,city:payload};  
-        case "postcode":
-            return {...state,postcode:payload};  
-        case "country":
-            return {...state,country:payload};
-        case "state":
-            return {...state,state:payload};
-        default:
-            return state;                                      
-    }
-}
+import { initialState, reducer } from './AdressDataReducer';
 
 
 const Payment = () => {
@@ -61,18 +15,14 @@ const Payment = () => {
     const [paymentMode,setPaymentMode] = useState("card");
 
     const handleNext = ()=>{
-
         setPage((prev)=>prev+1);
     }
 
     const handleBack = ()=>{
-
         setPage((prev)=>prev-1);
     }
 
     const updateState = (e)=>{
-       console.log(e);
-          console.log(e.target.value,e.target.name);
        let {name,value}= e.target; 
         dispatch({type:name,payload:value});
     }
@@ -84,15 +34,11 @@ const Payment = () => {
  
    
 
-
-
-
-
     return (
-        <Div>
-            <ProgressBar page={page}/>
-          <div className={page==0?'addressDiv':"blockDiv"}>  
-             <div className='two'>
+    <Div>
+        <ProgressBar page={page}/>
+        <div className={page==0?'addressDiv':"blockDiv"}>  
+            <div className='two'>
                 <div className='inputDiv'>
                    <label>First Name</label>
                    <input type='text' onChange={(e)=>updateState(e)} value={state.name}  name='name'/>
@@ -149,11 +95,10 @@ const Payment = () => {
                   <input type='text' name='address2' value={state.address2} onChange={updateState} />
                 </div> 
             </div>
-          </div>    
- 
+        </div>    
 
- <div className={page==1?'confirmAddressDiv':"blockDiv"}>  
-             <div className='two'>
+        <div className={page==1?'confirmAddressDiv':"blockDiv"}>  
+            <div className='two'>
                 <div className='inputDiv'>
                    <label>First Name</label>
                    <input type='text' disabled value={state.name}  name='name'/>
@@ -210,27 +155,23 @@ const Payment = () => {
                   <input type='text' name='address2' value={state.address2} disabled />
                 </div> 
             </div>
-          </div>  
+        </div>  
 
-
-          <PAYDIV className={page==2?'addressDiv':"blockDiv"}>
+        <PAYDIV className={page==2?'addressDiv':"blockDiv"}>
             <div className='sideDiv'>
-               <div style={{paddingLeft:"30px",border:"1px solid rgba(0,0,0,.125)"}} >PAY WITH</div>
-               <div className={paymentMode=="card"?'active_pay_SideDiv':""} id="card" onClick={handlePaymentDiv}  style={{border:"1px solid rgba(0,0,0,.125)"}} ><img width="30" height="35" disabled={true} style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/fluency/48/card-in-use.png" alt="card-in-use"/>  Card</div>
-               <div className={paymentMode=="ib"?'active_pay_SideDiv':""}   id="ib" onClick={handlePaymentDiv} style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="30" height="33"  style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/external-avoca-kerismaker/64/external-Internet-Banking-finance-avoca-kerismaker.png" alt="external-Internet-Banking-finance-avoca-kerismaker"/>Internet Banking</div>
-               <div className={paymentMode=="upi"?'active_pay_SideDiv':""}   id="upi" onClick={handlePaymentDiv} style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="40" height="40" style={{marginRight:"10px",marginLeft:"10px"}} src="https://img.icons8.com/ios/50/40C057/bhim-upi.png" alt="bhim-upi"/>UPI</div>
-               <div style={{border:"1px solid rgba(0,0,0,.125)"}}><img width="35" height="35" style={{marginRight:"10px",marginLeft:"10px"}}  src="https://img.icons8.com/external-flat-juicy-fish/60/external-qr-hands-and-gestures-flat-flat-juicy-fish.png" alt="external-qr-hands-and-gestures-flat-flat-juicy-fish"/>By Scan QR</div> 
+                <div style={{paddingLeft:"30px",border:"1px solid rgba(0,0,0,.125)"}} >PAY WITH</div>
+                <div className={paymentMode=="card"?'active_pay_SideDiv':""} id="card" onClick={handlePaymentDiv}><img width="30" height="35"   className='payDivIconImg'  src="https://img.icons8.com/fluency/48/card-in-use.png" alt="card-in-use"/>  Card</div>
+                <div className={paymentMode=="ib"?'active_pay_SideDiv':""}   id="ib" onClick={handlePaymentDiv} ><img width="30" height="33"    className='payDivIconImg'  src="https://img.icons8.com/external-avoca-kerismaker/64/external-Internet-Banking-finance-avoca-kerismaker.png" alt="img"/>Internet Banking</div>
+                <div className={paymentMode=="upi"?'active_pay_SideDiv':""}   id="upi" onClick={handlePaymentDiv} ><img width="40" height="40"  className='payDivIconImg'  src="https://img.icons8.com/ios/50/40C057/bhim-upi.png" alt="bhim-upi"/>UPI</div>
+                <div><img width="35" height="35" style={{marginRight:"10px",marginLeft:"10px"}}  src="https://img.icons8.com/external-flat-juicy-fish/60/external-qr-hands-and-gestures-flat-flat-juicy-fish.png" alt="img"/>By Scan QR</div> 
             </div>     
-        
             <CreditCardForm paymentMode={paymentMode}/>
             <UPIForm paymentMode={paymentMode}/> 
             <InternetBankingForm paymentMode={paymentMode}/>  
-
-           </PAYDIV>
+        </PAYDIV>
            
-          <PaymentButton handleBack={handleBack} handleNext={handleNext} page={page}/>
-        
-        </Div>
+        <PaymentButton handleBack={handleBack} handleNext={handleNext} page={page}/>
+    </Div>
     );
 };
 export default Payment;
@@ -257,7 +198,6 @@ margin-top: 20px;
    margin-top: 15px;
  
 }
-
 .two input{
    background-color: white;
    width:300px;
@@ -268,7 +208,6 @@ margin-top: 20px;
    /* border-radius: 10px; */
    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-
 .one input{
    background-color: white;
    width:620px;
@@ -279,32 +218,24 @@ margin-top: 20px;
    /* border-radius: 10px; */
    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-
  .one input:hover{
     border:1px solid blue;
  }
-
  .two input:hover{
     border:1px solid blue;
  }
-
-
 .inputDiv{
  display:flex;
  flex-direction:column;
 }
-
-
 .blockDiv{
     display: none;
 }
-
 .confirmAddressDiv input{
      background-color: lightgray;
      transition: transform 0.5s ease-in;
      transform: rotate(20);
 }
-
 `
 
 
@@ -322,33 +253,34 @@ background-color: #FBFCFE;
  background-color: #F8F9FA;
  border:1px solid rgba(0,0,0,.125);
 }
-
 .sideDiv div{
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 230px;
     height: 15%;
     text-align: left;
     /* border: 1px solid black; */
     background-color: #F8F9FA;
      padding-left: 20px;
      padding-right: 20px;
+     border:1px solid rgba(0,0,0,.125);
 }
-
 .activePaymentMode{
     display: block;
 }
-
 .paymentMode{
     display: none;
 }
-
 .sideDiv .active_pay_SideDiv{
     background-color: #dc3545;
     color:white;
     opacity: 10;
 }
-
+.payDivIconImg{
+    margin-right:10px;
+    margin-left:10px;
+    pointer-Events: none;
+}
 
 `
 

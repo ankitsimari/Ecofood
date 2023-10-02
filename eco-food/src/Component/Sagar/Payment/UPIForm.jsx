@@ -23,6 +23,7 @@ const [isSuccess,setIsSuccsess] = useState(false);
 const [upi,setUpi] = useState("");
 
 
+
 const handleUpi = (e)=>{
   
     setIsSuccsess(false);
@@ -40,9 +41,13 @@ const checkFunction= ()=>{
       setIsSuccsess(true);
     },3000);
    }
-
 }
  
+useEffect(()=>{
+   setUpi("");
+   setIsSuccsess(false);
+   console.log("rin");
+},[paymentMode])
 
   return (
     <Card
@@ -79,10 +84,11 @@ const checkFunction= ()=>{
         <FormControl sx={{ gridColumn: '1/-1' }}>
           <FormLabel style={{paddingLeft:"197px",width:"300px",}}>UPI ID</FormLabel>
           <div style={{display:"flex", width:"100%",gap:"10px"}}>
-             <Input disabled={flag} style={{width:"530px"}} placeholder="Enter your UPI id here" onChange={handleUpi} />
-             <Button disabled={flag} onClick={checkFunction} style={{color:"white",backgroundColor:isSuccess?"green":"#dc3545",cursor:upi!="" && isSuccess==false?"pointer":"not-allowed"}} > {isSuccess?"Verified":"Verify"}</Button>
+             <Input value={upi} disabled={flag} style={{width:"530px"}} placeholder="Enter your UPI id here" onChange={handleUpi} />
+             <Button disabled={isSuccess || flag} onClick={checkFunction} style={{color:"white",backgroundColor:isSuccess?"green":"#dc3545",cursor:upi!=="" && isSuccess===false?"pointer":"not-allowed"}} > {isSuccess?"Verified":"Verify"}</Button>
           </div >
           {flag && <LinearProgress style={{width:"100%",marginTop:"5px"}} color="success" />}
+          {isSuccess && <h6 style={{marginLeft:"10px",marginTop:"10px",color:"green"}}>Mr. Robert John Downey</h6>}
         </FormControl>
         
        

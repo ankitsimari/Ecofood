@@ -35,7 +35,7 @@ function ProductInfo({title,about,rating,price}) {
     // main data is singleData
     
   
-   const statarr = new Array(5).fill(0).map((e)=> <BsStarFill style={{color:"Orange"}}/>) 
+   const statarr = new Array(5).fill(0).map((e)=> <BsStarFill key={Math.random()} style={{color:"Orange"}}/>) 
 
    const handleCart=()=>{
   console.log(isAuth,"isAuth")
@@ -130,6 +130,8 @@ function ProductInfo({title,about,rating,price}) {
 //     setData(arr)
 //    })
 //    },[])
+
+
 console.log("prodcutinfo")
 
     return (
@@ -151,24 +153,12 @@ console.log("prodcutinfo")
                 </div>
             </div>    
             <span className='tax'>(inclusive of all taxes)</span>
-       <ButtonComponent onClick={handleCart} name="Add to cart" />
+       <ButtonComponent  onClick={handleCart} name="Add to cart" />
         </DIV>
     );
 }
 
 export default ProductInfo;
-
-
-// //{
-//     "title": "Pineapple",
-//     "price": 2.99,
-//     "category": "Fruits",
-//     "ingredients": "Pineapple",
-//     "about": "Juicy and tropical pineapple, great for fresh fruit salads.",
-//     "rating": 4.6,
-//     "image": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-//   }
-
 
 
  const DIV = styled.div`
@@ -192,7 +182,7 @@ export default ProductInfo;
     }
 
     h1{
-        color: #004747;
+        color: black;
         font-size: 50px;
     }
 
@@ -201,7 +191,7 @@ export default ProductInfo;
     }
 
    span{
-    color: #004747;
+    color: black;
    }
   
    .paySave{
@@ -242,7 +232,12 @@ export default ProductInfo;
    .tax{
     font-size: 20px;
     font-weight: 500;
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+   }
+
+   .tax + div button{
+    border-radius: 2px;
    }
 
 
