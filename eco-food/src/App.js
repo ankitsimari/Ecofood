@@ -6,9 +6,7 @@ import Footer from './Component/Footer';
 import Navbar from './Component/Navbar';
 import SingleCardPage from './Component/Sagar/SingleCardPage';
 import AllRoutes from './Routes/AllRoutes';
-
 import MainRoutes from './Routes/MainRoutes';
-
 
 
 function App() {

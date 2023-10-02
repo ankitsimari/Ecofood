@@ -49,16 +49,15 @@ export default function Slider() {
 const DIV = styled.div`
   
   margin:0px;
-  width:650px;
+  width:800px;
   cursor:pointer;
   padding:20px;
   /* border:1px solid black; */
-  margin-top: 30px;
   
   .image-div{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-Left:0px;
-    height:350px;
+    height:400px;
   }
 
   .image{
