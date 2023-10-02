@@ -40,7 +40,7 @@ export default function OtherProducts({data,category}) {
 //  },[]) ;
  
   return (
-    <DIV className="main">
+    <DIV className="main mx-3">
         <div className="headingDiv">
              <p>Other Category Prodcuts</p>
         </div>
@@ -51,7 +51,7 @@ export default function OtherProducts({data,category}) {
         showStatus={false}
         showIndicators={false}
         centerMode={true} // Display three images at a time
-        centerSlidePercentage={100/5} // Set the percentage based on the number of images you want to display
+        centerSlidePercentage={100/4} // Set the percentage based on the number of images you want to display
         emulateTouch={true} // Enable touch emulation for desktop
         swipeable={false}
         infiniteLoop={true}
@@ -61,7 +61,7 @@ export default function OtherProducts({data,category}) {
         useKeyboardArrows={true}
         swipeScrollTolerance={0}
       >
-     {similarData.map((product)=> <div className="first"><div className="second" ><FruitsCard key={product.id} {...product}/></div></div>)}
+     {similarData.map((product)=> <div className="first"><div className="second mx-" ><FruitsCard key={product.id} {...product}/></div></div>)}
       </Carousel>}
     </DIV>
   );
@@ -71,7 +71,7 @@ export default function OtherProducts({data,category}) {
 const DIV = styled.div`
  
  
- background-color:#FFF4ED;
+ /* background-color:#FFF4ED; */
  margin:auto;
  width:97%;
  margin-left: 0px;

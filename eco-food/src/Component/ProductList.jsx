@@ -52,10 +52,15 @@ export default function ProductList() {
   const loading = useSelector(store=>store.ProductsReducer.isLoading);
   console.log(loading)
 
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
   
   useEffect(()=>{
     dispatch(getProducts(paramsObj,page));
-    dispatch(getCount)
+    dispatch(getCount);
+    
+
   },[searchParams,page])
   
   if(loading){

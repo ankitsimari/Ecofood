@@ -15,13 +15,15 @@ import {Password} from '@mui/icons-material';
 import { Box } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
+import Swal from 'sweetalert2';
+import {useNavigate} from "react-router-dom"
 
 export default function UPIForm({paymentMode}) {
 
 const [flag,setFlag] = useState(false);
 const [isSuccess,setIsSuccsess] = useState(false);
 const [upi,setUpi] = useState("");
-
+const navigate = useNavigate()
 
 
 const handleUpi = (e)=>{
@@ -31,6 +33,15 @@ const handleUpi = (e)=>{
     setUpi((prev)=> value);
 } 
 
+const handlePayment = ()=>{
+  Swal.fire({
+    title: 'Payment Successful',
+    text: 'Payment Successfully!',
+    icon: 'success', // Set the icon to 'success'
+    confirmButtonColor: '#DC3545'
+  });
+  navigate("/")
+}
 
 const checkFunction= ()=>{
 
@@ -88,12 +99,12 @@ useEffect(()=>{
              <Button disabled={isSuccess || flag} onClick={checkFunction} style={{color:"white",backgroundColor:isSuccess?"green":"#dc3545",cursor:upi!=="" && isSuccess===false?"pointer":"not-allowed"}} > {isSuccess?"Verified":"Verify"}</Button>
           </div >
           {flag && <LinearProgress style={{width:"100%",marginTop:"5px"}} color="success" />}
-          {isSuccess && <h6 style={{marginLeft:"10px",marginTop:"10px",color:"green"}}>Mr. Robert John Downey</h6>}
+          {isSuccess && <h6 style={{marginLeft:"10px",marginTop:"10px",color:"green"}}>Ankit Kumar</h6>}
         </FormControl>
         
        
         <CardActions sx={{ gridColumn: '3/1' }}>
-          <Button variant="solid" style={{backgroundColor:'#dc3545',color:"white"}}>
+          <Button onClick={handlePayment} variant="solid" style={{backgroundColor:'#dc3545',color:"white"}}>
             Pay
           </Button>
         </CardActions>

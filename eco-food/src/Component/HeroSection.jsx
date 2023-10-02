@@ -12,8 +12,8 @@ export default function HeroSection() {
   return (
     <DIV className='container '>
         <div className="row">
-            <div className="col-md-6 p-lg-5 mt-4 order-2 order-lg-1 text">
-                <h1 className='my-2'> <span className='themeColor'>HUNGRY? </span>Wait We are comming in just <span className='themeColor'>30 MIN</span></h1>
+            <div className="col-md-6 p-3 p-lg-5 my-4 order-2 order-lg-1 text">
+                <h1 className='my-3'> <span className='themeColor'>HUNGRY? </span>Wait We are comming in just <span className='themeColor'>30 MIN</span></h1>
                 <p className='mb-4 mt-lg-4 fs-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, totam. Porro maiores ratione quia, voluptas quas obcaecati </p>
                 <ButtonComponent name="Order Now >" onClick={handleClick}/>
             </div>

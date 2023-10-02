@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { AdminProductSearch } from "./AdminProductSearch";
 import { Link, useSearchParams } from "react-router-dom";
 import { getAdminProducts } from "../../Redux/ProductReducer/action";
+import { MdDeleteForever } from "react-icons/md";
+import { AiFillEdit } from "react-icons/ai";
 
 export const AdminProductManage=()=>{
     
@@ -57,12 +59,13 @@ export const AdminProductManage=()=>{
    <>
         {/* <input type="text" onChange={(e)=>{setSearch(e.target.value)}} /> */}
 
-        
-                  <Link className="editBtn" to='/addNewProduct'>ADD NEW Product</Link>
+                  {/* <Link className="editBtn text-decoration-none" to='/addNewProduct'>ADD NEW Product</Link> */}
              
 
         <DIV>
+          <div className="ms-3 mt-5" style={{width:"20%"}}>
           <AdminProductSearch/>
+          </div>
         <div className="outerDiv">
     <table className="headerTable">
       <thead>
@@ -75,11 +78,11 @@ export const AdminProductManage=()=>{
           <th></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="gap-3">
         {products &&
           products.map((e, i) => {
             return (
-              <tr className="container shadow" key={i}>
+              <tr className="container shadow " key={i} style={{height:"80px"}}>
                 <td>
                   <img src={e.image} alt="" />
                 </td>
@@ -89,13 +92,13 @@ export const AdminProductManage=()=>{
                 <td>1</td>
                 <td>
                   <button className="editBtn" > 
-                  <Link className="editBtn" to={`/edit/${e.id}`}>Edit</Link>
+                  <Link className="editBtn text-decoration-none " to={`/edit/${e.id}`}><AiFillEdit className="my-1 fs-4"/></Link>
                   </button>
               
                 </td>
                
                 <td>
-                  <button className="deleteBtn" onClick={() => { handleDelete(e.id); }}>delete</button>
+                  <button className="deleteBtn" onClick={() => { handleDelete(e.id); }}><MdDeleteForever className="my-1 fs-4"/></button>
                 </td>
               </tr>
             );

@@ -27,7 +27,7 @@ const SingleCardPage = () => {
 
 
     return (
-        <div>
+        <div className="">
             <Header/>
             <BenefitVideo/>
             <SimilarProduct category={category} data={data}/>

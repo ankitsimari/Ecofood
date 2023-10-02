@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTotalProductFunction, getUsersData } from "../../Redux/ProductReducer/action";
+import { getAdminProducts, getTotalProductFunction, getUsersData } from "../../Redux/ProductReducer/action";
 import LineChart from "../Chart/LineChart";
 import DashCard from "../DashCard";
 import PolarChart from "../Chart/PolarChart";
@@ -8,6 +8,7 @@ import {AiOutlineEye} from "react-icons/ai"
 import {BsCartCheckFill, BsCashCoin} from "react-icons/bs"
 import {GoCodeReview} from "react-icons/go"
 import {FcSalesPerformance} from "react-icons/fc"
+import { AdminLoginFunction } from "../../Redux/AuthReducer/action";
 
 const Dashboard = () => {
 
@@ -64,8 +65,10 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     
     useEffect(()=>{
+      dispatch(AdminLoginFunction)
       dispatch(getUsersData);
-      dispatch(getTotalProductFunction)
+      dispatch(getTotalProductFunction);
+      dispatch(getAdminProducts({}))
         },[]);
 
 

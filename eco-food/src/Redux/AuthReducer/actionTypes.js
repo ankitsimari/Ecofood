@@ -10,4 +10,7 @@ export const SignUpFail = "LoginFail"
 export const GetUsersData="GetUsersData"
 export const LoginUpdate="LoginUpdate"
 export const LogoutUpdate="LogoutUpdate"
-export const upDateOrder="upDateOrder"
+export const upDateOrder="upDateOrder";
+
+
+export const adminLogin ="adminLogin"

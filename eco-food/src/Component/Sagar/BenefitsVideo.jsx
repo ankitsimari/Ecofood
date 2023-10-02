@@ -32,7 +32,7 @@ flex-direction: row;
 /* border: 1px solid black; */
 padding-top: 80px;
 padding-bottom: 80px;
-background-color: #FFF4ED;
+/* background-color: #FFF4ED; */
 .innerDiv{
     width: 50%;
     height: 400px;

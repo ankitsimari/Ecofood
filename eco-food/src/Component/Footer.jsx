@@ -49,12 +49,12 @@ export default function Footer() {
                   href="mailto:connect.thedesignvalue@gmail.com"
                   className="text-white text-decoration-none"
                 >
-                  <FaEnvelope /> connect.thedesignvalue@gmail.com
+                  <FaEnvelope /> erankkrs@gmail.com
                 </a>
               </p>
               <p>
                 <a href="tel:+916290191296" className="text-white text-decoration-none">
-                  <FaPhoneAlt /> +91 62901 91296
+                  <FaPhoneAlt /> +91 9576508805
                 </a>
               </p>
             </div>

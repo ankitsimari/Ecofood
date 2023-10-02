@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetUsersData, LoginFail, LoginRequest, LoginSuccess, LoginUpdate, LogoutUpdate, SignUpFail, SignUpRequest, SignUpSuccess } from "./actionTypes";
+import { GetUsersData, LoginFail, LoginRequest, LoginSuccess, LoginUpdate, LogoutUpdate, SignUpFail, SignUpRequest, SignUpSuccess, adminLogin } from "./actionTypes";
 import { getProductRequest } from "../ProductReducer/actionTypes";
 
 
@@ -8,7 +8,7 @@ export const signUp = (userData) => (dispatch) => {
     return axios
       .post("https://grocryapi.onrender.com/Users", userData)
       .then((res) => {
-        console.log("post signup",res.data)
+        // console.log("post signup",res.data)
         dispatch({ type:SignUpSuccess , payload: res.data});
       })
       .catch((err) => {
@@ -21,7 +21,7 @@ export const signUp = (userData) => (dispatch) => {
     return axios
       .get("https://grocryapi.onrender.com/Users")
       .then((res) => {
-        console.log(res.data,"getData")
+        // console.log(res.data,"getData")
         dispatch({ type:GetUsersData , payload: res.data});
       })
       .catch((err) => {
@@ -32,12 +32,12 @@ export const signUp = (userData) => (dispatch) => {
 
 
   export const login=(emData)=>(dispatch)=>{
-    console.log("login action")
+    // console.log("login action")
    // dispatch({type:LoginUpdate,payload:emData})
    axios
       .post("https://grocryapi.onrender.com/LoggedIn", emData)
       .then((res) => {
-        console.log("login UPDate",res.data)
+        // console.log("login UPDate",res.data)
         dispatch({ type:LoginUpdate , payload: res.data});
       })
       .catch((err) => {
@@ -82,4 +82,9 @@ export const signUp = (userData) => (dispatch) => {
   export const upDateOrder=(data)=>(dispatch)=>{
     console.log("update data")
     dispatch({type:upDateOrder,payload:data})
+  }
+
+
+  export const AdminLoginFunction = (dispatch) =>{
+    dispatch({type:adminLogin})
   }

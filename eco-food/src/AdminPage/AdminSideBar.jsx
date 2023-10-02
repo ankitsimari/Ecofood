@@ -8,14 +8,17 @@ import {
     FaShoppingBag,
     FaThList
 }from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import "./sidebar.css"
 import {MdCrisisAlert} from "react-icons/md"
+import {BiMessageAltAdd} from "react-icons/bi"
+import {TbLogout2} from "react-icons/tb"
 
 
 const AdminSidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
+    const navigate = useNavigate()
     const menuItem=[
         {
             path:"/",
@@ -44,8 +47,8 @@ const AdminSidebar = ({children}) => {
         },
         {
             path:"/AdminProduct",
-            name:"Product",
-            icon:<FaShoppingBag/>
+            name:"Add ",
+            icon:<BiMessageAltAdd/>
         },
         {
             path:"/AdminProductList",
@@ -53,6 +56,16 @@ const AdminSidebar = ({children}) => {
             icon:<FaThList/>
         }
     ]
+
+    const handleAdminLogout = ()=>{
+        localStorage.setItem("Admin",false);
+        // window.location.reload()
+        navigate("/")
+    }
+
+
+
+
     return (
         <div className=" AdminContainer">
            <div style={{width: isOpen ? "200px" : "50px"}} className="AdminSidebar">
@@ -70,6 +83,8 @@ const AdminSidebar = ({children}) => {
                        </NavLink>
                    ))
                }
+               
+               {/* <button onClick={handleAdminLogout} className='link border-0 '><TbLogout2 className="icon"/></button> */}
            </div>
            <main>{children}</main>
         </div>

@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { getUsers, login, logout } from "../../Redux/AuthReducer/action";
+import { AdminLoginFunction, getUsers, login, logout } from "../../Redux/AuthReducer/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginSuccess } from "../../Redux/AuthReducer/actionTypes";
 // import { Alert } from "@mui/material";
 import ButtonComponent from "../Button";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +41,15 @@ export const Login = () => {
     };
     console.log(Data, "Data");
 
+    if(email == "admin@gmail.com"){
+      Swal.fire({
+        title: 'Login Successful',
+        text: 'You are Logged in Successfully!',
+        icon: 'success', // Set the icon to 'success'
+        confirmButtonColor: '#DC3545'
+      });
+      dispatch(AdminLoginFunction)
+    }else{
     const emData = Users.filter((e, i) => {
       return e.email == Data.email;
     });
@@ -76,6 +87,7 @@ export const Login = () => {
       })
     }
   };
+}
   // const handleLogout = () => {
   //   dispatch(logout);
   // };
@@ -83,9 +95,13 @@ export const Login = () => {
   useEffect(() => {
     dispatch(getUsers);
   }, []);
+
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
   return (
     <>
-      <DIV className="my-5">
+      <DIV className="my-5" >
         {/* <div className="logout">
           <h1>logout</h1>
           <ButtonComponent onClick={handleLogout} name={"logout"} />
@@ -101,7 +117,7 @@ export const Login = () => {
 
 
 
-            <div className="col-md-5">
+            <div className="col-md-5" data-aos="fade-top">
 
               <div className="">
 
