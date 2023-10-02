@@ -13,6 +13,9 @@ import ProductList from '../Component/ProductList'
 import { CartPage } from '../Component/Hemanth/CartPage'
 import AdminSidebar from '../AdminPage/AdminSideBar'
 import AdminMain from './AdminMain'
+import { AdminProductManage } from '../Component/Hemanth/AdminProductManage'
+import { AdminEditProduct } from '../Component/Hemanth/AdminEditProduct'
+import { AdminAddProduct } from '../Component/Hemanth/AdminAddProduct'
 
 
 
@@ -37,7 +40,12 @@ export default function AllRoutes() {
             </PrivateRoutes>
             }/>
             <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/adminList' element={<AdminProductManage/>}/>
+            <Route path='/addNewProduct' element={<AdminAddProduct/>}/>
             <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
+            <Route
+             path="/edit/:id"
+        element={  <AdminEditProduct /> }/>
 
 
 
