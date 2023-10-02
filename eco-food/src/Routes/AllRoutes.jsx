@@ -9,7 +9,6 @@ import SingleCardPage from '../Component/Sagar/SingleCardPage'
 import { SignUp } from '../Component/Hemanth/Signup'
 import ProductList from '../Component/ProductList'
 import { CartPage } from '../Component/Hemanth/CartPage'
-import Payment from '../Component/Sagar/Payment/Payment'
 
 
 
@@ -35,14 +34,7 @@ export default function AllRoutes() {
           </PrivateRoutes>
             }/>
             <Route path='/signup' element={<SignUp/>}/>
-            <Route path='/payment' element={<Payment/>}/>
-            <Route path='/singlePage/:id' element={<SingleCardPage/>}/>
-{/* 
-            <Route path='/adminList' element={<AdminProductManage/>}/>
-            <Route path='/addNewProduct' element={<AdminAddProduct/>}/>
-            <Route
-             path="/edit/:id"
-        element={  <AdminEditProduct /> }/> */}
+
 
             
 
