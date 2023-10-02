@@ -6,7 +6,7 @@ import Footer from './Component/Footer';
 import Navbar from './Component/Navbar';
 import SingleCardPage from './Component/Sagar/SingleCardPage';
 import AllRoutes from './Routes/AllRoutes';
-
+import Payment from "./Component/Sagar/Payment/Payment"
 
 function App() {
   const mode = useSelector(store=>store.ProductsReducer.darkMode)
