@@ -57,8 +57,8 @@ function ProductInfo({title,about,rating,price}) {
     if(dat.length==1){
        console.log("already present")
        Swal.fire({
-        title: 'alredy present ',
-        text: 'product added already in cart',
+        title: 'Already Present in Cart',
+        text: 'Item already Present in Cart',
         icon: 'error',
         confirmButtonColor: '#DC3545'
       })
@@ -73,7 +73,7 @@ function ProductInfo({title,about,rating,price}) {
             
         console.log("add cart message")
          Swal.fire({
-             title: 'cart +1',
+             title: 'Added to Cart',
              text: 'product added Successfully!',
              icon: 'success', // Set the icon to 'success'
              confirmButtonColor: '#DC3545'
@@ -137,11 +137,11 @@ console.log("prodcutinfo")
     return (
        <DIV>
 
-        <Link to={"/cartPage"}>Cart</Link>
+        {/* <Link to={"/cartPage"}>Cart</Link> */}
            {maniData && <h1>{maniData.title}</h1>}
 
             <div className='rating'>{statarr}</div> 
-            <h4>48 reviews | 75k unit Sold</h4>
+            <h5>48 reviews | 75k unit Sold</h5>
             <p>{maniData?.about}</p>
             <span className='amountSpan' >MRP: <span className='amount'>₹ {maniData?.price+1000}</span ></span> 
             <div className='paySave'>
@@ -176,7 +176,7 @@ export default ProductInfo;
         margin-top:15px;
     }
 
-    h1,h4,p{
+    h1,h5,p{
         margin:0px;
         margin-top: 15px;
     }
@@ -187,7 +187,7 @@ export default ProductInfo;
     }
 
     p{
-        line-height: 1.5;
+        /* line-height: 1.5; */
     }
 
    span{
@@ -197,13 +197,13 @@ export default ProductInfo;
    .paySave{
     display: flex;
     flex-direction: row;
-    align-content: center;
+    /* align-content: center; */
     gap:10px;
     margin-top: 15px;
    }
    
    .amountSpan{
-    font-Size:22px;
+    font-Size:18px;
     color: black;
     margin-top: 15px;
    }
@@ -224,13 +224,13 @@ export default ProductInfo;
     align-items: center;
    }
    .save>span{
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: bold;
     color:#e37666;
    }
 
    .tax{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     margin-top: 5px;
     margin-bottom: 15px;

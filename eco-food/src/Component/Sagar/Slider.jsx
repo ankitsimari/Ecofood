@@ -7,11 +7,11 @@ export default function Slider() {
    
   const sliderImages = [
     // Your image objects here
-     "https://miro.medium.com/v2/resize:fit:720/1*b70EksDvGpnbOSkGcP8Ysg.jpeg",
-     "https://images.hdqwalls.com/wallpapers/beautiful-greenery-landscape-cl.jpg",
-     "http://acgpsy.org/wp-content/uploads/2017/07/DSC7178_79_80_2017-07-08-CB-Sunrise-txt2.jpg",
-     "https://3.bp.blogspot.com/-B6JUdxfEW2A/Ul9APIXh6sI/AAAAAAAAF3Y/lsmG8h0n6hU/s1600/Nature+photos+and+themes++17.jpg",
-     "http://getwallpapers.com/wallpaper/full/5/9/3/691211-large-nature-wallpaper-computer-2048x1365-4k.jpg"
+    "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_1280.jpg",
+     "https://www.bigbasket.com/media/uploads/p/l/10000007-4_1-fresho-apple-red-delicious-regular.jpg?tr=w-1080,q=80",
+     "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834",
+     "https://www.shutterstock.com/shutterstock/photos/2121188447/display_1500/stock-photo-fruit-and-flower-its-so-beautiful-2121188447.jpg",
+     "https://w0.peakpx.com/wallpaper/182/615/HD-wallpaper-fruits-apple-fruit.jpg"
   ];
 
 

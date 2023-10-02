@@ -32,7 +32,7 @@ export default function SimilarProduct({data,category}) {
 //  },[]) ;
  
   return (
-    <DIV className="main">
+    <DIV className="main mx-3">
         <div className="headingDiv">
              <p>Similar Category Prodcuts</p>
         </div>
@@ -43,7 +43,7 @@ export default function SimilarProduct({data,category}) {
         showStatus={false}
         showIndicators={false}
         centerMode={true} // Display three images at a time
-        centerSlidePercentage={100/5} // Set the percentage based on the number of images you want to display
+        centerSlidePercentage={100/4} // Set the percentage based on the number of images you want to display
         emulateTouch={true} // Enable touch emulation for desktop
         swipeable={false}
         infiniteLoop={true}
@@ -63,7 +63,7 @@ export default function SimilarProduct({data,category}) {
 const DIV = styled.div`
  
  
- background-color:#FFF4ED;
+ /* background-color:#FFF4ED; */
  margin:auto;
  width:97%;
  margin-left: 0px;

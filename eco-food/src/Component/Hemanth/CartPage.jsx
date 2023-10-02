@@ -192,10 +192,10 @@ export const CartPage = () => {
     // </DIV>
     <DIV className="container">
       <div className="row">
-  <div className="outerDiv col-md-9 px-5  bg-white py-5 rounded">
+  <div className=" col-md-9 ps-5  py-5 rounded">
     <span className="d-flex justify-content-between">
 <h3>Shopping Cart</h3>
-<h6 className="me-5 fs-5" >
+<h6 className="me-5 fs-5 text-danger" >
 {cartArr.length} Items  
     </h6>
     </span>
@@ -211,25 +211,27 @@ export const CartPage = () => {
           <th>Total</th>
         </tr>
       </thead>
-      <tbody >
+      <tbody className="">
         {cartArr &&
           cartArr.map((e, i) => {
             return (
-              <tr className="shadow my-4 p-2" key={i}>
+              <tr className="shadow  " key={i}>
                 <td>
                   <img src={e.image} alt="" />
                 </td>
                 <td>{e.title}</td>
                 <td>{e.category}</td>
                 <td>{Math.floor(e.price)}</td>
-                <td>
+                <td className="more_width">
                   <button className="plusMin " onClick={() => { handleDec(e.id); }}>
-                    <AiOutlineMinusCircle/>
+                    <AiOutlineMinusCircle className="text-danger"/>
                   </button>
-              
-                {e.quantity}
+              <span className="mx-1 text-danger">
 
-                  <button className="plusMin " onClick={() => { handleInc(e.id); }}> <AiOutlinePlusCircle/></button>
+                {e.quantity}
+              </span>
+
+                  <button className="plusMin " onClick={() => { handleInc(e.id); }}> <AiOutlinePlusCircle className="text-success" /></button>
                
                 </td>
                 <td>{Math.floor(e.total)}</td>
@@ -243,10 +245,12 @@ export const CartPage = () => {
           })}
       </tbody>
     </table>
+    <hr className="mt-5"/>
   </div>
 
-  <div className="sideDiv col-md-3 border-start ">
-    <h3 className="sideHead my-4  ms-3">Total</h3>
+  <div className=" col-md-3 border-start ">
+    <h3 className="sideHead my-4  ms-3">Order Summary</h3>
+    <hr />
     <p className="ms-3 fs-5" >
      Number Of Items : <span className="span1">{cartArr.length}</span>
     </p>
@@ -278,15 +282,19 @@ const DIV = styled.div`
 
   .headerTable {
   width: 90%;
-  padding-right:10%;
+  /* padding-right:10%; */
 
   /* border-collapse: collapse; */
   /* margin-left: 20px; */
 }
 
 tr{
-  height: 64px;
+  height: 80px;
+/* border: 1px solid gray; */
+}
 
+.more_width{
+  width: 100px;
 }
 
 .headerTable th, .headerTable td {
@@ -301,7 +309,7 @@ tr{
 } */
 
 .sideDiv {
-  width: 30%;
+  /* width: 30%; */
   border: none;
   /* border-radius: 20px; */
   /* height: 200px; */

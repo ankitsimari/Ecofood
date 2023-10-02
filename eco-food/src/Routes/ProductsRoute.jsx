@@ -4,6 +4,7 @@ import Navbar from "../Component/Navbar";
 import AllRoutes from "./AllRoutes";
 import BasicAccordion from "../Component/Accordian";
 import Footer from "../Component/Footer";
+import TidioChat from "../Component/ChatBot";
 
 export default function ProductsRoute() {
   const mode = useSelector((store) => store.ProductsReducer.darkMode);
@@ -19,6 +20,7 @@ export default function ProductsRoute() {
         <Navbar />
         <AllRoutes />
         <BasicAccordion />
+        <TidioChat/>
         <Footer />
       </div>
     </div>

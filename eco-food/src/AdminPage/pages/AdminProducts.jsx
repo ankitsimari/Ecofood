@@ -1,10 +1,11 @@
 import React from 'react'
+import { AdminEditProduct } from '../../Component/Hemanth/AdminEditProduct'
+import { AdminAddProduct } from '../../Component/Hemanth/AdminAddProduct'
 
 export default function AdminProducts() {
   return (
-    <div>
-      <h2>AdminProducts</h2>
-      
+    <div className='mt-5'>
+     <AdminAddProduct/>
       </div>
   )
 }

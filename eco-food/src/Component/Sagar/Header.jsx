@@ -10,8 +10,8 @@ const Header = () => {
 
     return (
          <DIV>      
-      <ProductInfo/>
       <Slider/>
+      <ProductInfo/>
       </DIV>
     );
 };
@@ -22,9 +22,9 @@ export default Header;
 const DIV = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: space-around;
-margin-top: 50px;
-background-color:#FFF4ED;
+justify-content: center;
+gap: 50px;
+/* margin-top: 50px; */
 DIV>div{
   margin: 0px;
 }
@@ -34,7 +34,7 @@ DIV>div{
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-margin-top: 50px;
+/* margin-top: 50px; */
 height: 280px;
 background-color:#DBF0EC;
 DIV>div{

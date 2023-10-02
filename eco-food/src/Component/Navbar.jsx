@@ -148,10 +148,10 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="d-flex flex-column flex-lg-row">
-              {/* <ButtonComponent
+              <ButtonComponent
                 name={mode ? "Light" : "Dark"}
                 onClick={handleMode}
-              /> */}
+              />
 
               {/* <Button  className="btn btn-2 fw-bold px-4 mx-3 mx-lg-0  me-xl-5">{isAuth?"UserName":"Register"}</Button> */}
               {/* <NavLink to="/login" >
@@ -184,4 +184,6 @@ const DIV = styled.nav`
   .cart-btn{
     margin-top: -5px;
   }
+
+  
 `;

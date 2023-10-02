@@ -45,13 +45,14 @@ export const AdminProductSearch = () => {
     <div>
     
 
-      <h3>Filter by category</h3>
+      <h3 className="my-4">Filter</h3>
       <div>
         <input
           type="checkbox"
           value={"Fruits"}
           onChange={handleCategory}
           checked={category.includes("Fruits")}
+          className ="form-check-input bg me-2"
         />
         <label>Fruits</label>
       </div>
@@ -61,6 +62,7 @@ export const AdminProductSearch = () => {
           value={"Vegetables"}
           onChange={handleCategory}
           checked={category.includes("Vegetables")}
+          className ="form-check-input bg me-2"
         />
         <label>Vegetables</label>
       </div>
@@ -70,6 +72,7 @@ export const AdminProductSearch = () => {
           value={"Chicken"}
           onChange={handleCategory}
           checked={category.includes("Chicken")}
+          className ="form-check-input bg me-2"
         />
         <label>Chicken</label>
       </div>
@@ -79,6 +82,7 @@ export const AdminProductSearch = () => {
           value={"Seafood"}
           onChange={handleCategory}
           checked={category.includes("Seafood")}
+          className ="form-check-input bg me-2"
         />
         <label>Seafood</label>
       </div>
@@ -88,33 +92,39 @@ export const AdminProductSearch = () => {
           value={"Mutton"}
           onChange={handleCategory}
           checked={category.includes("Mutton")}
+          className ="form-check-input bg me-2"
         />
         <label>Mutton</label>
       </div>
 
       
 
-      <h3>Sort By Price</h3>
+      <h3 className="my-4">Sort</h3>
       <div onChange={handleOrder}>
         <input
           type="radio"
           name="order"
           value={"asc"}
           defaultChecked={order === "asc"}
+          className ="form-check-input bg me-2"
         />
         <label>Low to High</label>
+        <br />
         <input
           type="radio"
           name="order"
           value={"desc"}
           defaultChecked={order === "desc"}
+          className ="form-check-input bg me-2"
         />
         <label>High to Low</label>
+        <br />
         <input
           type="radio"
           name="order"
           value={""}
           defaultChecked={order === ""}
+          className ="form-check-input bg me-2"
         />
         <label>Reset</label>
       </div>

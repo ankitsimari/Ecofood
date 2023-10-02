@@ -31,7 +31,7 @@ export const AdminAddProduct = () => {
     e.preventDefault();
     console.log(data);
     dispatch(addAdminProduct(data)).then((res)=>{
-        navigate(-1)
+        navigate("/")
     })
     
     setData(inintialState);
@@ -42,13 +42,14 @@ export const AdminAddProduct = () => {
   return (
     <DIV>
       <form onSubmit={handleSubmit}>
-        <h1>Add Product</h1>
+        <h1>Add <span className="text-danger">Product</span></h1>
         <input
           type="text"
           name="title"
           placeholder="Name"
           onChange={handleChange}
           value={data.name}
+          className="form-control"
         />
         <input
           type="text"
@@ -56,6 +57,7 @@ export const AdminAddProduct = () => {
           placeholder="Image"
           onChange={handleChange}
           value={data.image}
+          className="form-control"
         />
         <input
           type="number"
@@ -63,9 +65,10 @@ export const AdminAddProduct = () => {
           placeholder="Price"
           onChange={handleChange}
           value={data.price}
+          className="form-control"
         />
         
-        <select name="category" onChange={handleChange}>
+        <select name="category" onChange={handleChange} className="form-control">
           <option value="">Select Brand</option>
           <option value="Fruits">fruits</option>
             <option value="Vegetables">vegitable</option>
@@ -79,6 +82,7 @@ export const AdminAddProduct = () => {
           placeholder="about"
           onChange={handleChange}
           value={data.about}
+          className="form-control"
         />
         <button type="submit">Add Product</button>
       </form>
@@ -87,9 +91,9 @@ export const AdminAddProduct = () => {
 };
 
 const DIV = styled.div`
-  width: 400px;
+  max-width: 400px;
   margin: auto;
-  padding: 30px;
+  /* padding: 30px;  */
 
   form {
     display: flex;
@@ -103,10 +107,18 @@ const DIV = styled.div`
     height: 40px;
     width: 100%;
     font-size: 20px;
+
   }
 
   button {
     width: 50%;
     height: 35px;
+    border:1px solid #DC3545;
+    background-color: #DC3545;
+    color: white;
+  }
+  button:hover {
+    background-color:white ;
+    color: #DC3545;
   }
 `;
