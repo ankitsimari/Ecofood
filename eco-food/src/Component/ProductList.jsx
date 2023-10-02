@@ -74,7 +74,7 @@ return <Loader/>
     {/* <ProductList/> */}
 
     <div>
-    <div className='m-4' style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)"}}>
+    <div className='m-4' style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",placeItems:"center"}}>
         {data && data.map((e)=>(
           <ProductCard key={e.id} {...e}/>
           ))}

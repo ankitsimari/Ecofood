@@ -1,11 +1,14 @@
-import { DarkMode, TotalData, getProductFail, getProductRequest, getProductSuccess } from "./actionTypes"
+import { DarkMode, GET_ADMIN_PRODUCT, TotalData, getProductFail, getProductRequest, getProductSuccess, getTotalProduct, getUsers } from "./actionTypes"
 
 const initialState = {
     isLoading:false,
     isError:false,
     products:[],
     darkMode:false,
-    length:0
+    length:0,
+    Users:[],
+    TotalProducts:[],
+    adminProducts:[]
 }
 
 
@@ -20,7 +23,13 @@ export const reducer = (state=initialState,{type,payload})=>{
         case DarkMode:
             return {...state,darkMode:!state.darkMode}
         case TotalData:
-            return {...state,length:payload}
+            return {...state,length:payload};
+        case getUsers:
+            return {...state,Users:payload};
+        case getTotalProduct:
+           return {...state,TotalProducts:payload};
+           case GET_ADMIN_PRODUCT:
+            return {...state,adminProducts:payload}
         default: return state
     }
 }

@@ -4,13 +4,22 @@ import styled from "styled-components";
 import ButtonComponent from "../Button";
 import { useDispatch, useSelector } from "react-redux";
 import { upDateOrder } from "../../Redux/AuthReducer/actionTypes";
+import {AiFillDelete, AiOutlineMinusCircle, AiOutlinePlusCircle} from "react-icons/ai"
+import { useNavigate } from "react-router-dom";
+import Loader from "../Loader";
 
 export const CartPage = () => {
   const [cartArr, setCartArr] = useState([]);
   const [totalPrice, setTotal] = useState(0);
   const [orderSt, setOrderSt] = useState([]);
-  const dispatch=useDispatch()
-  const logId = useSelector(store=>store.AuthReducer.loginUser.id);
+  const [loading,setLoading] = useState(false)
+  const dispatch=useDispatch();
+  const navigate = useNavigate()
+  // const logId = useSelector(store=>store.AuthReducer.loginUser.id);
+  const logId = 1;
+
+
+
   //const orderArr = [];
   // const orderLs = localStorage.getItem("cartData");
   // let orderArr=[]
@@ -66,12 +75,14 @@ export const CartPage = () => {
       });
       setCartArr(arr);
 
+      // setLoading(true)
+
       //axios.patch(`https://grocryapi.onrender.com/Users/1`,{
       axios.patch(`https://grocryapi.onrender.com/LoggedIn/${logId}`,{
       Order:[...arr]
      })
      .then((res)=>{console.log(res)})
-       
+    //  setLoading(false)
      //dispatch(upDateOrder(arr))
      }
 
@@ -99,6 +110,7 @@ export const CartPage = () => {
     //make id dynamic with params()
   
    // axios.get("https://grocryapi.onrender.com/Users/1").then((res) => {
+    setLoading(true)
     axios.get(`https://grocryapi.onrender.com/LoggedIn/${logId}`).then((res) => {
       console.log(res.data.Order, "resOrder cartPage");
       const arr = res.data.Order.map((e, i) => {
@@ -111,6 +123,7 @@ export const CartPage = () => {
 
       console.log(arr, "arr");
       setCartArr(arr);
+      setLoading(false)
     });
   }, []);
 
@@ -124,6 +137,13 @@ export const CartPage = () => {
     setTotal(sum);
   });
  
+  const handleCheckout = ()=>{
+    navigate("/payment")
+  }
+
+  if(loading){
+    return <Loader/>
+  }
 
   // console.log("order cart page",orders)
 
@@ -170,8 +190,16 @@ export const CartPage = () => {
     //     </div>
     //   </div>
     // </DIV>
-    <DIV>
-  <div className="outerDiv">
+    <DIV className="container">
+      <div className="row">
+  <div className="outerDiv col-md-9 px-5  bg-white py-5 rounded">
+    <span className="d-flex justify-content-between">
+<h3>Shopping Cart</h3>
+<h6 className="me-5 fs-5" >
+{cartArr.length} Items  
+    </h6>
+    </span>
+<hr />
     <table className="headerTable">
       <thead>
         <tr>
@@ -183,11 +211,11 @@ export const CartPage = () => {
           <th>Total</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         {cartArr &&
           cartArr.map((e, i) => {
             return (
-              <tr className="container" key={i}>
+              <tr className="shadow my-4 p-2" key={i}>
                 <td>
                   <img src={e.image} alt="" />
                 </td>
@@ -195,15 +223,20 @@ export const CartPage = () => {
                 <td>{e.category}</td>
                 <td>{Math.floor(e.price)}</td>
                 <td>
-                  <button className="plusMin" onClick={() => { handleInc(e.id); }}> +</button>
+                  <button className="plusMin " onClick={() => { handleDec(e.id); }}>
+                    <AiOutlineMinusCircle/>
+                  </button>
               
                 {e.quantity}
+
+                  <button className="plusMin " onClick={() => { handleInc(e.id); }}> <AiOutlinePlusCircle/></button>
                
-                  <button className="plusMin" onClick={() => { handleDec(e.id); }}>-</button>
                 </td>
                 <td>{Math.floor(e.total)}</td>
                 <td>
-                  <button className="deleteBtn" onClick={() => { handleDelete(e.id); }}>delete</button>
+                  <button className="deleteBtn py-1" onClick={() => { handleDelete(e.id); }}>
+                    <AiFillDelete className="fs-4 "/>
+                  </button>
                 </td>
               </tr>
             );
@@ -212,19 +245,19 @@ export const CartPage = () => {
     </table>
   </div>
 
-  <div className="sideDiv">
-    <h3 className="sideHead">cart</h3>
-    <p>
-      items : <span className="span1">{cartArr.length}</span>
+  <div className="sideDiv col-md-3 border-start ">
+    <h3 className="sideHead my-4  ms-3">Total</h3>
+    <p className="ms-3 fs-5" >
+     Number Of Items : <span className="span1">{cartArr.length}</span>
     </p>
-    <p>
-      Total : <span className="span2">{Math.floor(totalPrice)}</span>
+    <p  className="ms-3 fs-5">
+      Total Amount: <span className="span2">₹{Math.floor(totalPrice)}</span>
     </p>
-    <div className="sideDivBut">
-      <button className="pay">Pay on Delivery</button>
-      <button>Pay Now</button>
+    <div className=" ms-3">
+   <ButtonComponent onClick={handleCheckout} name="Checkout" />
     </div>
   </div>
+      </div>
 </DIV>
 
 
@@ -234,134 +267,78 @@ const DIV = styled.div`
   display: flex;
   margin-top: 25px;
 
-  /* .container {
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
-    align-items: center;
-  }
-  img {
-    width: 10%;
-    border-radius: 10px;
-  }
-  .header {
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
-    margin-left: 20%;
-  }
-  .sideDiv {
-    border: none;
-    border-radius: 30px;
-    height: 200px;
-    padding: 15px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin-top: 50px;
-  }
-  .sideDiv p {
-    margin-left: 20px;
-  }
-  .sideHead {
-    text-align: center;
-  }
-
-  .outerDiv {
-    width: 75%;
-  }
-  button {
-    margin-left: 2px;
-    background-color: #dc3545;
-  }
-  .pay {
-    border-radius: 15px;
-    color: #dc3545;
-    background-color: white;
-    border: 1px solid #dc3545;
-  }
-
-  .span1 {
-    margin-left: 50px;
-  }
-  .span2 {
-    margin-left: 50px;
-  } */
   
 .outerDiv{
   width: 70%;
 }
-
-  display: flex;
-  margin-top: 25px;
   img {
     width: 30%;
-    border-radius: 10px;
+    margin-left:0% !important; 
   }
 
   .headerTable {
-  width: 75%;
-  border-collapse: collapse;
-  margin-left: 20px;
+  width: 90%;
+  padding-right:10%;
+
+  /* border-collapse: collapse; */
+  /* margin-left: 20px; */
+}
+
+tr{
+  height: 64px;
+
 }
 
 .headerTable th, .headerTable td {
   text-align: center;
   padding: 10px;
-  border: none; 
+  /* border: none;  */
 }
 
-.item-image {
-  width: 50px;
+/* .item-image {
+  width: 70px;
   border-radius: 10px;
-}
+} */
 
 .sideDiv {
   width: 30%;
   border: none;
-  border-radius: 20px;
-  height: 200px;
+  /* border-radius: 20px; */
+  /* height: 200px; */
   padding: 15px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  margin-top: 50px;
-  margin-right: 30px;
  
 }
 
-.sideDiv p {
-  margin-left: 20px;
-}
+/* .sideDiv p {
+  margin-left: 0px;
+} */
 
-.sideHead {
+/* .sideHead {
   text-align: center;
-}
+} */
 
-.sideDivBut button {
-  margin: 5px;
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
 
-.pay {
+/* .pay {
   background-color: white;
   color: #dc3545;
   border: 1px solid #dc3545;
-}
+} */
 .plusMin{
   border:none;
 
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 .deleteBtn{
-  border:none;
+  border:1px solid #dc3545;
   background-color:#dc3545;
   color: white;
-  border-radius: 4px;
+  margin-right:70px;
+  /* border-radius: 4px; */
+}
+
+.deleteBtn:hover{
+  background-color: white;
+  color:#dc3545;
 }
 `;

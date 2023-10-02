@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./sidebar.css"
 import {
     FaTh,
     FaBars,
@@ -10,6 +9,8 @@ import {
     FaThList
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import "./sidebar.css"
+import {MdCrisisAlert} from "react-icons/md"
 
 
 const AdminSidebar = ({children}) => {
@@ -17,41 +18,46 @@ const AdminSidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            // path:"/",
+            path:"/",
             name:"Dashboard",
             icon:<FaTh/>
         },
         {
-            path:"/about",
-            name:"About",
-            icon:<FaUserAlt/>
-        },
-        {
             path:"/analytics",
-            name:"Analytics",
+            name:"Stocks",
             icon:<FaRegChartBar/>
         },
         {
+            path:"/sales",
+            name:"Sales",
+            icon:<MdCrisisAlert/>
+        },
+        {
+            path:"/AdminAbout",
+            name:"Users",
+            icon:<FaUserAlt/>
+        },
+        {
             path:"/comment",
-            name:"Comment",
+            name:"Reviews",
             icon:<FaCommentAlt/>
         },
         {
-            path:"/product",
+            path:"/AdminProduct",
             name:"Product",
             icon:<FaShoppingBag/>
         },
         {
-            path:"/productList",
+            path:"/AdminProductList",
             name:"Product List",
             icon:<FaThList/>
         }
     ]
     return (
-        <div className="container-fluid">
-           <div style={{width: isOpen ? "200px" : "50px"}} className="Adminsidebar">
+        <div className=" AdminContainer">
+           <div style={{width: isOpen ? "200px" : "50px"}} className="AdminSidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">EcoFood</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
@@ -71,5 +77,3 @@ const AdminSidebar = ({children}) => {
 };
 
 export default AdminSidebar;
-
-
