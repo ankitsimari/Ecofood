@@ -1,4 +1,6 @@
-
+body{
+    overflow-x: hidden;
+}
 
 .themeColor{
     color: #DC3545;
