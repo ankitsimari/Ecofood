@@ -35,10 +35,10 @@ const handleUpi = (e)=>{
 
 const handlePayment = ()=>{
   Swal.fire({
-    title: 'Payment Successful',
-    text: 'Payment Successfully!',
+    title: 'Order Successful!',
+    text: 'You Will Receive Your Order in 30 Min',
     icon: 'success', // Set the icon to 'success'
-    confirmButtonColor: '#DC3545'
+    confirmButtonColor: '#DC3545',
   });
   navigate("/")
 }
