@@ -1,6 +1,9 @@
 body{
     overflow-x: hidden;
 }
+.AdminContainer a{
+    text-decoration: none;
+}
 
 .themeColor{
     color: #DC3545;
