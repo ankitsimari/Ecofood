@@ -7,6 +7,8 @@ import ButtonComponent from '../Button';
 import axios from 'axios';
 import { loginOnload, productOnload } from '../../Redux/AuthReducer/action';
 import Swal from 'sweetalert2';
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 function ProductInfo({title,about,rating,price}) {
 
@@ -121,7 +123,9 @@ function ProductInfo({title,about,rating,price}) {
    console.log("getData user id 1")
    },[])
 
-
+   useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
 //    useEffect(()=>{
 //     axios.get(`https://grocryapi.onrender.com/Products/${id}`)
 //    .then((res)=>{console.log(res.data,"rsingleData")
@@ -135,7 +139,7 @@ function ProductInfo({title,about,rating,price}) {
 console.log("prodcutinfo")
 
     return (
-       <DIV>
+       <DIV data-aos="fade-left">
 
         {/* <Link to={"/cartPage"}>Cart</Link> */}
            {maniData && <h1>{maniData.title}</h1>}

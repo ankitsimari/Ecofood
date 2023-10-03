@@ -21,8 +21,8 @@ const TestimonalCard = ({image,feedback,rating,name}) => {
     const currentDate = new Date(Date.now());
     const statarr = new Array(rating).fill(0).map((e)=> <BsStarFill key={Math.random()} style={{color:"Orange"}}/>) 
     return (
-        <DIV>
-            <div style={{display:"flex"}}>
+        <DIV className='shadow m-2'>
+            <div  style={{display:"flex"}}>
             <div  className='imageDiv'>
                 <img src={image} alt="" />
             </div>
@@ -53,11 +53,12 @@ width: 400px;
 border-top-left-radius: 30px;
 border-bottom-right-radius: 30px;
 height: 200px;
-border: 1px solid black;
+
 margin-left: 40%;
-background-color: #F2FFFE;
-background-color: #F5F8FD;
-background-color:white;
+backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+/* background-color:white; */
 .imageDiv {
     width: 80px;
     height: 75px;

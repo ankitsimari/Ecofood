@@ -1,9 +1,10 @@
 import React from 'react';
+import Reviews from './Reviews';
 
 const Comment = () => {
     return (
         <div>
-            <h1>Comment page</h1>
+           <Reviews/>
         </div>
     );
 };

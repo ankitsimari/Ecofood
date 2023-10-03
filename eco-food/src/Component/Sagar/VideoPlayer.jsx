@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import YouTube,{iframe} from "react-youtube"
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 const VideoPlayer = () => {
   
@@ -40,8 +42,12 @@ const VideoPlayer = () => {
     },
   };
 
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
+
   return (
-    <div id="youtube-player" className="youtube-embed">
+    <div id="youtube-player" className="youtube-embed" data-aos="fade-left">
       <YouTube videoId={videoId} opts={opts} />
     </div>
   );

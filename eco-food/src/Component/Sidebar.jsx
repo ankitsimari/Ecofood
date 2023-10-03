@@ -37,7 +37,7 @@ export const Sidebar = () => {
 
 
   return (
-    <DIV>
+    <DIV className="mainSidebarProduct">
       <h4 className="mt-lg-5 mb-3">Category</h4>
       <div>
         <input className ="form-check-input bg me-2" data-testid="novel-filter" type="checkbox" value={"Fruits"} checked={category.includes("Fruits")} onChange={handleCategory} />

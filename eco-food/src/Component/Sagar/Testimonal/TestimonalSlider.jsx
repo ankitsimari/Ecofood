@@ -39,7 +39,7 @@ export default function TestimonalSlider() {
  
 
   return (
-    <DIV className="main">
+    <DIV className="main testi">
         <div className="headingDiv">
              {/* <p>Similar Category Prodcuts</p> */}
         </div>

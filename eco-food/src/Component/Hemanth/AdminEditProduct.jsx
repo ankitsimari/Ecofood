@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components";
 import { useNavigate, useParams } from 'react-router-dom';
 import { editAdminProduct } from '../../Redux/ProductReducer/action';
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export const AdminEditProduct=()=>{
     const {id}=useParams();
@@ -34,11 +36,12 @@ export const AdminEditProduct=()=>{
         setImage(arr[0].image)
         setAbout(arr[0].about)
      // console.log(price,title,"price title")
-     
+     AOS.init({duration:2000})
      },[])
+
  return(
     <DIV >
-     <div className='mt-4 text-center'>
+     <div className='mt-4 text-center' data-aos="fade-left">
      <h1>Edit <span className="text-danger">Product</span></h1>
 
          <input className='form-control my-3' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} />

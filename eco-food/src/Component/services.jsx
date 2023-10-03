@@ -1,10 +1,13 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect } from 'react'
 import chef from "../Image/chef1.png"
 
+
 export default function Services() {
+
+
   return (
-    <DIV className='container mb-5 text-center'>
+    <DIV className='container mb-5 text-center'  >
         <h6 className='fw-bold themeColor'>WHAT WE SERVE</h6>
         <h2>Your Favorite Food <br /> at Your Door</h2>
         <div className="row mt-4">

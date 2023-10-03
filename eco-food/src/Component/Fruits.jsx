@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FruitsCard from './FruitsCard'
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
@@ -6,10 +6,17 @@ import strawberry_img from "../Image/f1.png"
 import apple_img from "../Image/f8.png"
 import banana_img from "../Image/f9.png"
 import pine_img from "../Image/f6.png"
+import AOS from "aos"
+import 'aos/dist/aos.css';
 
 export default function Fruits() {
+
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
+   
   return (
-    <div className='mb-5' >
+    <div className='mb-5'     data-aos="fade-left">
       <span  className='d-flex justify-content-between mb-5 '>
 
         <h3 className='ms-lg-5 ps-lg-4 '>Fresh Fruits For You</h3>

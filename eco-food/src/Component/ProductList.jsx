@@ -7,6 +7,8 @@ import styled from '@emotion/styled';
 import Loader from './Loader';
 import { Sidebar } from './Sidebar';
 import Filter from './Filter';
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export default function ProductList() {
 
@@ -61,7 +63,11 @@ export default function ProductList() {
     dispatch(getCount);
     
 
-  },[searchParams,page])
+  },[searchParams,page]);
+
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
   
   if(loading){
 return <Loader/>
@@ -72,14 +78,14 @@ return <Loader/>
     {/* <h2 className='text-center m-5'>Products Page</h2> */}
     <Filter/>
     <div className='d-flex'>
-  <div className='sidebar'>
+  <div className='sidebar' data-aos="fade-right">
   <Sidebar/>
   </div>
-  <div className='List'>
+  <div className='List' data-aos="fade-left">
     {/* <ProductList/> */}
 
     <div>
-    <div className='m-4' style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",placeItems:"center"}}>
+    <div className='m-4 productListMain' >
         {data && data.map((e)=>(
           <ProductCard key={e.id} {...e}/>
           ))}
