@@ -14,7 +14,7 @@ export default function Home() {
       <Services/>
       <Fruits/>
       <Dishes/>
-      <TestimonalSlider/>
+      {/* <TestimonalSlider/> */}
       {/* <Testimonial/> */}
     </div>
   )

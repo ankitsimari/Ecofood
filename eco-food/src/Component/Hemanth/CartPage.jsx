@@ -148,54 +148,9 @@ export const CartPage = () => {
     return <Loader/>
   }
 
-  // useEffect(()=>{
-  //   AOS.init({duration:2000})
-  //   },[])
-  // console.log("order cart page",orders)
 
   return (
-    // <DIV>
-    //   <div className="outerDiv">
-    //     <div className="header">
-    //       <p>Item</p>
-    //       <p>Name</p>
-    //       <p>Category</p>
-    //       <p>Price</p>
-    //       <p>Quantity</p>
-    //       <p>Total</p>
-    //     </div>
-    //     {cartArr &&
-    //       cartArr.map((e, i) => {
-    //         return (
-    //           <div className="container" key={i}>
-    //             <img src={e.image} alt="" />
-    //             <p>{e.title}</p>
-    //             <p>{e.category}</p>
-    //             <p>{Math.floor(e.price)}</p>
-    //             <button onClick={() => {handleInc(e.id); }}> +</button>
-    //             <p>{e.quantity}</p>
-    //             <button onClick={() => {handleDec(e.id);}}>-</button>
-    //             <p>{Math.floor(e.total)}</p>
-    //             <button onClick={()=>{handleDelete(e.id)}}>delete</button>
-    //           </div>
-    //         );
-    //       })}
-    //   </div>
 
-    //   <div className="sideDiv">
-    //     <h3 className="sideHead">cart</h3>
-    //     <p>
-    //       items : <span className="span1">{cartArr.length}</span>
-    //     </p>
-    //     <p>
-    //       Total : <span className="span2">{Math.floor(totalPrice)}</span>
-    //     </p>
-    //     <div className="sideDivBut">
-    //       <button className="pay">Pay on Delivery</button>
-    //       <button>Pay Now</button>
-    //     </div>
-    //   </div>
-    // </DIV>
     <DIV className="container">
       <div className="row">
   <div className=" col-md-9 ps-5  py-5 rounded" data-aos="fade-right">
@@ -208,13 +163,14 @@ export const CartPage = () => {
 <hr />
     <table className="headerTable">
       <thead>
-        <tr>
+        <tr className="bg-danger text-white">
           <th>Item</th>
           <th>Name</th>
           <th>Category</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Total</th>
+          <th></th>
         </tr>
       </thead>
       <tbody className="">
@@ -294,7 +250,7 @@ const DIV = styled.div`
   /* margin-left: 20px; */
 }
 
-tr{
+tbody tr{
   height: 80px;
 /* border: 1px solid gray; */
 }

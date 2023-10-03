@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { editAdminProduct } from '../../Redux/ProductReducer/action';
 import AOS from "aos"
 import 'aos/dist/aos.css'
+import Swal from 'sweetalert2';
 
 export const AdminEditProduct=()=>{
     const {id}=useParams();
@@ -23,6 +24,12 @@ export const AdminEditProduct=()=>{
      const userData={
          title:name,price,category,about,image
      }
+     Swal.fire({
+      title: 'Product Edited Successfully',
+      text: 'Your Product is Edited Successfully!',
+      icon: 'success', // Set the icon to 'success'
+      confirmButtonColor: '#DC3545'
+    });
     dispatch(editAdminProduct(id,userData)).then((res)=>{
         navigate(-1)
     })

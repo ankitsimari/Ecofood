@@ -9,10 +9,12 @@ import { MdDeleteForever } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
 import AOS from "aos"
 import 'aos/dist/aos.css'
+import Loader from "../Loader";
 
 
 export const AdminProductManage=()=>{
-    
+   
+  const [loading,setLoading]= useState(false)
    
     const[search,setSearch]=useState("")
     const dispatch=useDispatch()
@@ -32,9 +34,11 @@ export const AdminProductManage=()=>{
     };
   
   const handleDelete=(id)=>{
+    setLoading(true)
    axios.delete(`https://grocryapi.onrender.com/products/${id}`)
    .then((res)=>{
     dispatch(getAdminProducts(paramsObj))
+    setLoading(false)
    })
   }
 
@@ -59,6 +63,9 @@ export const AdminProductManage=()=>{
       AOS.init({duration:2000})
       },[])
 
+      if(loading){
+        return <Loader/>
+      }
 
     return(
    <>
@@ -74,12 +81,13 @@ export const AdminProductManage=()=>{
         <div className="outerDiv" data-aos="fade-left">
     <table className="headerTable">
       <thead>
-        <tr>
+        <tr className="bg-danger text-white">
           <th>Item</th>
           <th>Name</th>
           <th>Category</th>
           <th>Price</th>
           <th>Quantity</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { addAdminProduct } from "../../Redux/ProductReducer/action";
 import AOS from "aos"
 import 'aos/dist/aos.css'
+import Swal from "sweetalert2";
 
 const inintialState = {
   title: "",
@@ -32,11 +33,20 @@ export const AdminAddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
+    
     dispatch(addAdminProduct(data)).then((res)=>{
-        navigate("/")
+        navigate("/AdminProductList")
     })
     
     setData(inintialState);
+
+    Swal.fire({
+      title: 'Product Added Successfully',
+      text: 'Your Product is Added Successfully!',
+      icon: 'success', // Set the icon to 'success'
+      confirmButtonColor: '#DC3545'
+    });
+    
   };
 
   console.log("data", data);
