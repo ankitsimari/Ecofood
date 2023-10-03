@@ -10,9 +10,9 @@ export default function Slider() {
   const sliderImages = [
     // Your image objects here
     "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_1280.jpg",
-     "https://www.bigbasket.com/media/uploads/p/l/10000007-4_1-fresho-apple-red-delicious-regular.jpg?tr=w-1080,q=80",
-     "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834",
-     "https://www.shutterstock.com/shutterstock/photos/2121188447/display_1500/stock-photo-fruit-and-flower-its-so-beautiful-2121188447.jpg",
+     "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+     "https://images.unsplash.com/photo-1610397962076-02407a169a5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+     "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
      "https://w0.peakpx.com/wallpaper/182/615/HD-wallpaper-fruits-apple-fruit.jpg"
   ];
   useEffect(()=>{
