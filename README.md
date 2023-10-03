@@ -21,9 +21,11 @@ EcoFood is an online platform dedicated to providing you with fresh, organic, an
 ## Tech Skills
 
 React jS
+Redux
 Material UI
 Char JS
 Bootstrap
+
 
 ## Key Features
 
