@@ -18,6 +18,13 @@ Welcome to the EcoFood Fresh Food Website! This README file will guide you throu
 
 EcoFood is an online platform dedicated to providing you with fresh, organic, and sustainable food products. Our website is designed to enhance your shopping experience by offering a wide range of features and functionalities.
 
+## Tech Skills
+
+React jS
+Material UI
+Char JS
+Bootstrap
+
 ## Key Features
 
 ### Landing Page
