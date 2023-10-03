@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonComponent from "../Button";
 import Swal from "sweetalert2";
+import AOS from "aos"
+import 'aos/dist/aos.css'
+
 export const SignUp=()=>{
     const[email,setEmail]=useState("");
     const [firstName,setFirstName]=useState("");
@@ -58,16 +61,17 @@ export const SignUp=()=>{
     }
     
     useEffect(()=>{
-      dispatch(getUsers)
+      dispatch(getUsers);
+      AOS.init({duration:2000})
     },[])
     return(
         <DIV>
-          <div className="container">
+          <div className="container" >
             <div className="row">
               <div className="col-md-7 d-none d-lg-flex">
               <img className="w-100" src="https://img.freepik.com/premium-vector/set-fastfood-items-vector-illustration_920128-50.jpg?w=2000" alt="" />
               </div>
-              <div className="col-md-5">
+              <div className="col-md-5" data-aos="fade-left">
             <h1>Signup</h1>
 
             <label  htmlFor="">Name</label>

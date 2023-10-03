@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Reviews from './Reviews';
+
 
 export default function AdminAbout() {
   return (
-    <div>AdminAbout</div>
+    <div>
+       <Reviews/>
+    </div>
   )
 }

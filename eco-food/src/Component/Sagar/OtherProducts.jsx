@@ -5,6 +5,8 @@ import { styled } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import FruitsCard from "../FruitsCard";
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export default function OtherProducts({data,category}) {  
  
@@ -38,9 +40,12 @@ export default function OtherProducts({data,category}) {
 //       }
 //    })
 //  },[]) ;
+useEffect(()=>{
+  AOS.init({duration:2000})
+  },[])
  
   return (
-    <DIV className="main mx-3">
+    <DIV className="main mx-3" data-aos="fade-right">
         <div className="headingDiv">
              <p>Other Category Prodcuts</p>
         </div>

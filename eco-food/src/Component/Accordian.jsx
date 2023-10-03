@@ -5,10 +5,15 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styled from '@emotion/styled';
+import AOS from "aos"
+import 'aos/dist/aos.css';
 
 export default function BasicAccordion() {
+  React.useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
   return (
-    <DIV className='container my-4'>
+    <DIV className='container my-4' data-aos="fade-right">
       <h2 className='my-5'>Frequently Asked Question</h2>
       <Accordion className='Accordion'>
         <AccordionSummary

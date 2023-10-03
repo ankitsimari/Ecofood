@@ -2,12 +2,16 @@ import React,{useState,useEffect} from 'react';
 import VideoPlayer from './VideoPlayer';
 import { styled } from 'styled-components';
 import { Diversity2Outlined } from '@mui/icons-material';
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 const BenefitsVideo = () => {
-
+    useEffect(()=>{
+        AOS.init({duration:2000})
+        },[])
     return (
         <DIV>
-            <div className='innerDiv helthTextDiv'>
+            <div className='innerDiv helthTextDiv' data-aos="fade-right">
                 <div className='inner-div1'>
                    <h1>Good quality products For Better Living</h1>
                    <p>Get the goodness of your vegetables and fruits with each nutritionally dense serving.</p>

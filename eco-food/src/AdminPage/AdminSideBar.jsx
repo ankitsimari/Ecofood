@@ -54,12 +54,16 @@ const AdminSidebar = ({children}) => {
             path:"/AdminProductList",
             name:"Product List",
             icon:<FaThList/>
+        },
+        {
+            path:"/AdminLogout",
+            name:"Logout",
+            icon:<TbLogout2/>
         }
     ]
 
     const handleAdminLogout = ()=>{
         localStorage.setItem("Admin",false);
-        // window.location.reload()
         navigate("/")
     }
 

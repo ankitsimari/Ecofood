@@ -7,6 +7,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { getAdminProducts } from "../../Redux/ProductReducer/action";
 import { MdDeleteForever } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
+import AOS from "aos"
+import 'aos/dist/aos.css'
+
 
 export const AdminProductManage=()=>{
     
@@ -52,7 +55,9 @@ export const AdminProductManage=()=>{
 
     // },[search])
 
-
+    useEffect(()=>{
+      AOS.init({duration:2000})
+      },[])
 
 
     return(
@@ -66,7 +71,7 @@ export const AdminProductManage=()=>{
           <div className="ms-3 mt-5" style={{width:"20%"}}>
           <AdminProductSearch/>
           </div>
-        <div className="outerDiv">
+        <div className="outerDiv" data-aos="fade-left">
     <table className="headerTable">
       <thead>
         <tr>

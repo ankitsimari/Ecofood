@@ -7,6 +7,8 @@ import { upDateOrder } from "../../Redux/AuthReducer/actionTypes";
 import {AiFillDelete, AiOutlineMinusCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export const CartPage = () => {
   const [cartArr, setCartArr] = useState([]);
@@ -125,6 +127,7 @@ export const CartPage = () => {
       setCartArr(arr);
       setLoading(false)
     });
+    AOS.init({duration:2000})
   }, []);
 
   useEffect(() => {
@@ -145,6 +148,9 @@ export const CartPage = () => {
     return <Loader/>
   }
 
+  // useEffect(()=>{
+  //   AOS.init({duration:2000})
+  //   },[])
   // console.log("order cart page",orders)
 
   return (
@@ -192,7 +198,7 @@ export const CartPage = () => {
     // </DIV>
     <DIV className="container">
       <div className="row">
-  <div className=" col-md-9 ps-5  py-5 rounded">
+  <div className=" col-md-9 ps-5  py-5 rounded" data-aos="fade-right">
     <span className="d-flex justify-content-between">
 <h3>Shopping Cart</h3>
 <h6 className="me-5 fs-5 text-danger" >
@@ -248,7 +254,7 @@ export const CartPage = () => {
     <hr className="mt-5"/>
   </div>
 
-  <div className=" col-md-3 border-start ">
+  <div className=" col-md-3 border-start " data-aos="fade-left">
     <h3 className="sideHead my-4  ms-3">Order Summary</h3>
     <hr />
     <p className="ms-3 fs-5" >

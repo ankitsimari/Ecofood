@@ -1,10 +1,16 @@
 import styled from "@emotion/styled";
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from "aos"
+import 'aos/dist/aos.css';
 
 export default function Card({image,name,price}) {
+
+useEffect(()=>{
+  AOS.init({duration:2000})
+  },[])
+
   return (
-    <DIV>
+    <DIV data-aos="fade-right">
 
     <div className="smallCard shadow text-center pb-4 rounded">
       <img

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { addAdminProduct } from "../../Redux/ProductReducer/action";
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 const inintialState = {
   title: "",
@@ -38,9 +40,11 @@ export const AdminAddProduct = () => {
   };
 
   console.log("data", data);
-
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
   return (
-    <DIV>
+    <DIV data-aos="fade-right">
       <form onSubmit={handleSubmit}>
         <h1>Add <span className="text-danger">Product</span></h1>
         <input

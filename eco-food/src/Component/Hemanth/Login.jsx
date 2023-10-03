@@ -117,7 +117,7 @@ export const Login = () => {
 
 
 
-            <div className="col-md-5" data-aos="fade-top">
+            <div className="col-md-5" data-aos="fade-right">
 
               <div className="">
 

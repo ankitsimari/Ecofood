@@ -2,6 +2,8 @@ import React,{ useState,useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // //visit for more info https://react-responsive-carousel.js.org/  for same like this//https://css-tricks.com/how-to-make-a-css-only-carousel/
 import { Carousel } from "react-responsive-carousel";  //visit for more info https://react-responsive-carousel.js.org/
 import { styled } from "styled-components";
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 export default function Slider() { 
    
@@ -13,10 +15,12 @@ export default function Slider() {
      "https://www.shutterstock.com/shutterstock/photos/2121188447/display_1500/stock-photo-fruit-and-flower-its-so-beautiful-2121188447.jpg",
      "https://w0.peakpx.com/wallpaper/182/615/HD-wallpaper-fruits-apple-fruit.jpg"
   ];
-
+  useEffect(()=>{
+    AOS.init({duration:2000})
+    },[])
 
   return (
-    <DIV>
+    <DIV data-aos="fade-right">
       <Carousel
         showArrows={true}   
         autoPlay={true}
