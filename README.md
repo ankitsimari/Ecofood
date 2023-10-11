@@ -50,7 +50,7 @@ The product page is where you can browse and explore our vast selection of fresh
 - *Pagination*: Navigate through multiple pages of product listings.
 
 
-<img width="934" alt="products" src="https://github.com/ankitsimari/sleek-circle-8356/assets/130365748/1141a9a7-0c90-486d-a997-5980a83d1ab7">
+<img width="934" alt="products" src="https://i.ibb.co/60jrF1K/products.png">
 
 ### Login & Sign-Up Page
 
