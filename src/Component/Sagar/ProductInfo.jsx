@@ -144,19 +144,18 @@ console.log("prodcutinfo")
         {/* <Link to={"/cartPage"}>Cart</Link> */}
            {maniData && <h1 className='mt-4'>{maniData.title}</h1>}
 
-            <div className='rating my-3'>{statarr}</div> 
+            <div className='rating my-2'>{statarr}</div> 
             <h5>48 reviews | 75k unit Sold</h5>
             <p>{maniData?.about}</p>
-            <span className='amountSpan' >MRP: <span className='amount'>₹ {maniData?.price+1000}</span ></span> 
+            <h5 className='amountSpan fw-bold' >MRP: <span className='amount'>₹ {maniData?.price+1000}</span ></h5> 
             <div className='paySave'>
-                <div>
-                    <span className='pay'>You Pay: ₹ {maniData?.price} </span>
-                 </div> 
-                 <div className='save'>    
-                       <span>(SAVE ₹ 1000)</span>
+                <div className='d-flex'>
+                    <h4 className='pay my-2'>You Pay: ₹ {maniData?.price} </h4>
+                
+                       <h5>(SAVE ₹ 1000)</h5>
                 </div>
             </div>    
-            <span className='tax'>(inclusive of all taxes)</span>
+            <p className='tax mb-3'>(inclusive of all taxes)</p>
        <ButtonComponent  onClick={handleCart} name="Add to cart" />
         </div>
     );

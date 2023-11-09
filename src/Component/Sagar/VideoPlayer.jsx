@@ -47,7 +47,7 @@ const VideoPlayer = () => {
     },[])
 
   return (
-    <div id="youtube-player" className="youtube-embed" data-aos="fade-left">
+    <div id="youtube-player" className="youtube-embed" data-aos="fade-up">
       <YouTube videoId={videoId} opts={opts} />
     </div>
   );

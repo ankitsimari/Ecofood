@@ -45,7 +45,7 @@ useEffect(()=>{
   },[])
  
   return (
-    <DIV className="main mx-3" data-aos="fade-right">
+    <DIV className="main mx-3 d-none d-lg-grid" data-aos="fade-right">
         <div className="headingDiv">
              <p>Other Category Prodcuts</p>
         </div>
