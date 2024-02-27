@@ -29,9 +29,9 @@ const SingleCardPage = () => {
     return (
         <div className="">
             <Header/>
-            <BenefitVideo/>
+{/*             <BenefitVideo/>
             <SimilarProduct category={category} data={data}/>
-            <OtherProduct category={category} data={data}/>
+            <OtherProduct category={category} data={data}/> */}
         </div>
     );
 };
