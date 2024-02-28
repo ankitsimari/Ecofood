@@ -20,7 +20,7 @@ export default function ProductsRoute() {
         <Navbar />
         <AllRoutes />
         <BasicAccordion />
-        <TidioChat/>
+{/*         <TidioChat/> */}
         <Footer />
       </div>
     </div>
